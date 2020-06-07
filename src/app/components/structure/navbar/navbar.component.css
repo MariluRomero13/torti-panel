@@ -1,0 +1,53 @@
+.nav-settings {
+  background-color: #2A4365 !important;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  position: sticky;
+  z-index: 6 !important;
+}
+
+.icon-style {
+  color: white;
+}
+
+.navbar .navbar-toggler {
+  cursor: pointer;
+  outline: 0;
+  padding-top: 4% !important;
+  padding-bottom: 4% !important;
+}
+
+@media screen and (max-width: 991px) {
+  .nav-settings {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  .navbar .navbar-toggler {
+    padding-top: 2% !important;
+    padding-bottom: 2% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .navbar-toggler {
+    padding-top: 2% !important;
+    padding-bottom: 2% !important;
+  }
+}
+
+
+@media screen and (max-width: 414px) {
+  .navbar .navbar-toggler {
+    padding-top: 4% !important;
+    padding-bottom: 4% !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navbar .navbar-toggler {
+    padding-top: 5% !important;
+    padding-bottom: 5% !important;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
