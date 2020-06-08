@@ -17,6 +17,10 @@
   padding-bottom: 4% !important;
 }
 
+.navbar-toggler-icon {
+  background: white !important;
+}
+
 @media screen and (max-width: 991px) {
   .nav-settings {
     padding-top: 2%;
@@ -50,4 +54,8 @@
     margin-top: 2%;
     margin-bottom: 2%;
   }
+}
+
+.menu-item {
+  color: black;
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MaterialSvgService } from './services/material-svg.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'torti-panel';
+  constructor(private materialSvg: MaterialSvgService) {
+    this.materialSvg.init();
+  }
 }

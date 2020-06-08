@@ -10,7 +10,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="notification">
-            <mat-icon matListIcon class="icon-style">notifications</mat-icon>
+            <mat-icon matListIcon svgIcon="bell" class="icon-style"></mat-icon>
           </a>
           <mat-menu #notification="matMenu">
             <button mat-menu-item>
@@ -24,12 +24,12 @@
           </a>
           <mat-menu #menu="matMenu">
             <button mat-menu-item>
-              <mat-icon matListIcon>account_box</mat-icon>
-              <span class="word">Peril</span>
+              <mat-icon matListIcon class="menu-item">account_box</mat-icon>
+              <span class="menu-item">Peril</span>
             </button>
             <button mat-menu-item>
-              <mat-icon matListIcon svgIcon="logout"></mat-icon>
-              <span class="word">Salir</span>
+              <mat-icon matListIcon svgIcon="logout" class="menu-item"></mat-icon>
+              <span class="menu-item">Salir</span>
             </button>
           </mat-menu>
         </li>
