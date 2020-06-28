@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './components/structure/admin-layout/admin-layout.component';
-
+import { LoginComponent } from './components/auth/login/login.component';
 const appRoutes: Routes = [
+  {path: 'login', component: LoginComponent },
   {path: '', component: AdminLayoutComponent }
 ];
 
