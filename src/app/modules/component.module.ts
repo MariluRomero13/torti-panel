@@ -7,6 +7,7 @@ import { ShareModule } from './share.module';
 import { LoginComponent } from '../components/auth/login/login.component';
 import { RecoveryPasswordComponent } from '../components/auth/recovery-password/recovery-password.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { ProfileComponent } from '../components/auth/profile/profile.component';
 
 
 @NgModule({
@@ -16,14 +17,18 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
     AdminLayoutComponent,
     LoginComponent,
     RecoveryPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     ShareModule
   ],
   exports: [
     ShareModule
+  ],
+  entryComponents: [
+    RecoveryPasswordComponent
   ]
 })
 export class ComponentModule { }

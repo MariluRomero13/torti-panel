@@ -6,9 +6,10 @@ import { PageNotFoundComponent } from './components/structure/page-not-found/pag
 import { AuthGuard } from './guards/auth.guard';
 import { dashboardRoutes } from './components/structure/dashboard.routes';
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent }, // Add AuthLoginGuard
   { path: 'panel', redirectTo: '/panel/dashboard', pathMatch: 'full' },
-  { path: 'panel', component: AdminLayoutComponent, canActivate: [AuthGuard], children: dashboardRoutes },
+  { path: '', redirectTo: '/panel/dashboard', pathMatch: 'full' },
+  { path: 'panel', component: AdminLayoutComponent, children: dashboardRoutes }, // Add AuthGuard
   { component: PageNotFoundComponent, path: 'pagina-no-encontrada' },
   { path: '**', redirectTo: 'pagina-no-encontrada' }
 ];

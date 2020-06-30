@@ -8,3 +8,14 @@ export const loginMessage = {
     { type: 'required', message: 'La contraseña es obligatoria' }
   ]
 };
+
+export const recoveryPasswordMessage = {
+  password: [
+    { type: 'required', message: 'La contraseña nueva es obligatoria' },
+    { type: 'min', message: 'El mínimo de caracteres es 5' }
+  ],
+  confirmPassword: [
+    { type: 'required', message: 'El campo de confirmar contraseña es obligatorio' },
+    { type: 'min', message: 'El mínimo de caracteres es 5' }
+  ]
+};

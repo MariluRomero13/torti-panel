@@ -1,0 +1,25 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card content">
+            <div class="card-header">
+              <img src="/assets/img/user.png" alt="profile" width="90" height="90" class="image-space">
+            </div>
+            <div class="card-body">
+              <p><b>Usuario:</b> {{ user.username }}</p>
+              <p><b>Correo:</b> {{ user.email }}</p>
+              <div id="buttons-content">
+                <button mat-button class="btn back-button" [routerLink]="['/panel/dashboard']">
+                  <i class="material-icons qpon-icon">arrow_back</i>
+                </button>
+                <button class="btn main-button" (click)="openRecoveryPasswordForm()">
+                  <span>Cambiar contraseña</span>
+                </button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

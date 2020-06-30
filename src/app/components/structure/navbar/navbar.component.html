@@ -23,7 +23,7 @@
             <img src="/assets/img/user.png" height="50px" width="50px">
           </a>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="['/panel/perfil']">
               <mat-icon matListIcon class="menu-item">account_box</mat-icon>
               <span class="menu-item">Perfil</span>
             </button>
