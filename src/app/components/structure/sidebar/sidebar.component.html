@@ -7,17 +7,21 @@
 </div>
 <div class="sidebar-wrapper">
   <div *ngIf="isMobileMenu()">
-    <form class="navbar-form">
-      <span class="bmd-form-group">
-        <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
-          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
-            <i class="material-icons">search</i>
-            <div class="ripple-container"></div>
-          </button>
-        </div>
-      </span>
-    </form>
+    <ul class="nav navbar-nav nav-mobile-menu">
+      <li routerLinkActive="active" class="item nav-item">
+        <a class="nav-link" [routerLink]="['/panel/perfil']">
+          <mat-icon svgIcon="account" matListIcon class="icon-style"></mat-icon>
+          <p>Perfil</p>
+        </a>
+      </li>
+      <li routerLinkActive="active" class="item nav-item">
+        <a class="nav-link" [routerLink]="['/panel/notificaciones']">
+          <mat-icon svgIcon="bell" matListIcon class="icon-style"></mat-icon>
+          <p>Notificaciones</p>
+        </a>
+      </li>
+    </ul>
+    <hr>
   </div>
   <ul class="nav">
     <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="item nav-item">

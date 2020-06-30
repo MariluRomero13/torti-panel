@@ -5,14 +5,14 @@ declare const $: any;
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
   menuItems: RouteInfo[];
   constructor() { }
 
   ngOnInit() {
-    this.menuItems = appRoutes.filter(listTitle => listTitle);;
+    this.menuItems = appRoutes.filter(listTitle => listTitle);
   }
 
   isMobileMenu(): boolean {

@@ -1,0 +1,24 @@
+.detail {
+  height: 80% !important;
+}
+
+.card-icon > i, mat-icon {
+  font-size: 36px;
+  line-height: 56px;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+}
+
+.isGreen {
+  background: linear-gradient(60deg, #3ABB67, #3ABB67) !important;
+}
+
+.isBlue {
+  background: linear-gradient(60deg, #2A4365, #2A4365) !important;
+}
+
+#chartContainer {
+  margin-top: 5%;
+  justify-content: center;
+}

@@ -28,3 +28,15 @@
 .item {
   color: black;
 }
+
+::ng-deep .sidebar .nav li.active > a, .sidebar .nav li.active > a mat-icon {
+  color: #fff !important;
+  background-color: #2A4365 !important;
+  .icon-style {
+    color: #fff !important;
+  }
+}
+
+.nav-mobile-menu > li:first-child {
+  margin-top: 10px;
+}

@@ -6,6 +6,7 @@ import { NavbarComponent } from '../components/structure/navbar/navbar.component
 import { ShareModule } from './share.module';
 import { LoginComponent } from '../components/auth/login/login.component';
 import { RecoveryPasswordComponent } from '../components/auth/recovery-password/recovery-password.component';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { RecoveryPasswordComponent } from '../components/auth/recovery-password/
     SidebarComponent,
     AdminLayoutComponent,
     LoginComponent,
-    RecoveryPasswordComponent
+    RecoveryPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
