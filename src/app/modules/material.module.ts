@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 const materialComponents = [
   MatIconModule,
   MatMenuModule,
@@ -14,7 +17,10 @@ const materialComponents = [
   MatInputModule,
   MatGridListModule,
   MatCardModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 ];
 
 @NgModule({

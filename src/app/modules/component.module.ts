@@ -8,6 +8,8 @@ import { LoginComponent } from '../components/auth/login/login.component';
 import { RecoveryPasswordComponent } from '../components/auth/recovery-password/recovery-password.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { ProfileComponent } from '../components/auth/profile/profile.component';
+import { NotificationIndexComponent } from '../components/notifications/notification-index/notification-index.component';
+import { NotificationDetailComponent } from '../components/notifications/notification-detail/notification-detail.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ProfileComponent } from '../components/auth/profile/profile.component';
     LoginComponent,
     RecoveryPasswordComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    NotificationIndexComponent,
+    NotificationDetailComponent
   ],
   imports: [
   CommonModule,
@@ -28,7 +32,8 @@ import { ProfileComponent } from '../components/auth/profile/profile.component';
     ShareModule
   ],
   entryComponents: [
-    RecoveryPasswordComponent
+    RecoveryPasswordComponent,
+    NotificationDetailComponent
   ]
 })
 export class ComponentModule { }

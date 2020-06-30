@@ -10,6 +10,8 @@ import { ShareModule } from './modules/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/authentication/jwt-interceptor.service';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { getSpainPaginatorIntl } from './functions/paginator';
 @NgModule({
   declarations: [
     AppComponent
@@ -31,7 +33,8 @@ import { JwtInterceptorService } from './services/authentication/jwt-interceptor
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
       multi: true
-    }
+    },
+    { provide: MatPaginatorIntl, useValue: getSpainPaginatorIntl() }
   ],
   bootstrap: [AppComponent]
 })

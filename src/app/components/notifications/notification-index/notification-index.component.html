@@ -1,0 +1,70 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="title">Notificaciones</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12"></div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="search-container">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Buscar" (keyup)="searchNotification($event.target.value)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="table-responsive">
+          <mat-table class="table" [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="employee">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
+              <mat-cell *matCellDef="let notification">
+                <span class="mobile-label cell-title">Empleado:</span>
+                {{ notification.employee }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="phone">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Teléfono</mat-header-cell>
+              <mat-cell *matCellDef="let notification">
+                <span class="mobile-label cell-title">Teléfono:</span>
+                {{ notification.phone }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="email">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Correo</mat-header-cell>
+              <mat-cell *matCellDef="let notification">
+                <span class="mobile-label cell-title">Correo:</span>
+                {{ notification.email }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="requested">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Solicitado</mat-header-cell>
+              <mat-cell *matCellDef="let notification">
+                <span class="mobile-label cell-title">Solicitado:</span>
+                {{ notification.requested }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="description">
+              <mat-header-cell *matHeaderCellDef class="cell-title">Descripción</mat-header-cell>
+              <mat-cell *matCellDef="let notification">
+                <span class="mobile-label cell-title">Descripción:</span>
+                <button class="btn icon-button" (click)="openCommentForm(notification)">
+                  <mat-icon matIcon svgIcon="comment-eye" class="option-icon"></mat-icon>
+                </button>
+              </mat-cell>
+            </ng-container>
+            <tr>
+              <mat-header-row *matHeaderRowDef="notificationColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: notificationColumns"></mat-row>
+            </tr>
+          </mat-table>
+          <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

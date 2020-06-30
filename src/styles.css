@@ -44,7 +44,89 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white;
 }
 
+.icon-button {
+  background-color: white;
+  color: black;
+  min-width: 50px;
+  border: solid 1px white;
+  padding: 0px;
+  max-height: 50px;
+}
+
+.icon-button:focus {
+  background-color: white;
+  color: black;
+}
 
 .icon-color {
   color: rgba(0, 0, 0, 0.54);
+}
+
+.option-icon {
+  width: 25px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+mat-cell{
+  display:flex !important;
+  justify-content:center!important;
+
+}
+
+.table-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5px;
+}
+
+.cell-title {
+  font-size: 13px;
+  color: black !important;
+}
+
+mat-header-cell {
+  display:flex;
+  justify-content:center;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mobile-label {
+  display: none;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 0px !important;
+  color: #212529;
+}
+
+@media(max-width: 600px) {
+  .cell-title {
+    color: #3ABB67 !important;
+  }
+
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+    font-size: 15px;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+  }
+}
+
+.title {
+  color: black;
 }
