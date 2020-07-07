@@ -66,6 +66,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 25px;
   margin-bottom: 4px;
   margin-top: 4px;
+  cursor: pointer;
 }
 
 mat-cell{
@@ -128,5 +129,31 @@ mat-header-cell {
 }
 
 .title {
+  color: black;
+}
+
+.active {
+  color: #2EA959;
+  cursor: pointer;
+}
+
+.inactive {
+  color: #FF0742;
+  cursor: pointer;
+}
+
+.swal2-styled.swal2-cancel {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  color: black !important;
+  background: white !important;
+  font-size: 1.0625em;
+  box-shadow: 2px 2px 10px #666 !important;
+}
+
+.title-card {
+  font-size: 22px;
+  font-weight: 300;
   color: black;
 }

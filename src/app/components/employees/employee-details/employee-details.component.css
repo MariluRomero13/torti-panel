@@ -1,0 +1,11 @@
+@import '../../../../styles.css';
+
+#button-container {
+  text-align: end;
+}
+
+#description {
+  color: black;
+  text-align: justify;
+  font-size: 16px;
+}
