@@ -162,7 +162,9 @@
                     <button mat-button class="btn back-button" [routerLink]="['/panel/empleados']">
                       <span>Cancelar</span>
                     </button>
-                    <button class="btn main-button">
+                    <button class="btn main-button"
+                      (click)="employeId ? update() : store()"
+                      [disabled]="!userForm.valid || !employeeForm.valid">
                       <span>Guardar</span>
                     </button>
                   </div>

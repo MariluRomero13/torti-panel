@@ -35,4 +35,8 @@ export class EmployeeFormComponent implements OnInit {
       address: new FormControl('', Validators.compose([Validators.required]))
     });
   }
+
+  store(): void {}
+
+  update(): void {}
 }

@@ -13,6 +13,8 @@ import { NotificationDetailComponent } from '../components/notifications/notific
 import { EmployeeIndexComponent } from '../components/employees/employee-index/employee-index.component';
 import { EmployeeFormComponent } from '../components/employees/employee-form/employee-form.component';
 import { EmployeeDetailsComponent } from '../components/employees/employee-details/employee-details.component';
+import { ProductFormComponent } from '../components/products/product-form/product-form.component';
+import { ProductIndexComponent } from '../components/products/product-index/product-index.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { EmployeeDetailsComponent } from '../components/employees/employee-detai
     NotificationDetailComponent,
     EmployeeIndexComponent,
     EmployeeFormComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    ProductFormComponent,
+    ProductIndexComponent
   ],
   imports: [
   CommonModule,
@@ -40,7 +44,8 @@ import { EmployeeDetailsComponent } from '../components/employees/employee-detai
   entryComponents: [
     RecoveryPasswordComponent,
     NotificationDetailComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    ProductFormComponent
   ]
 })
 export class ComponentModule { }

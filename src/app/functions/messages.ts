@@ -47,4 +47,13 @@ export const employeeMessages = {
   phone: [
     { type: 'required', message: 'El teléfono es obligatorio' }
   ],
-}
+};
+
+export const productMessage = {
+  name: [
+    { type: 'required', message: 'El nombre del producto es obligatorio' }
+  ],
+  price: [
+    { type: 'required', message: 'El precio del producto es obligatorio' }
+  ]
+};
