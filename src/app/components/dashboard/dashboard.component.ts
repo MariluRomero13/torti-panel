@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { DashboardService } from './../../services/dashboard.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  details = { employees: 0, customers: 0, sales: 0 };
+  constructor(private dashboardSvc: DashboardService) {}
 
   private startAnimationForLineChart(chart): void {
     let seq = 0;
@@ -80,6 +83,12 @@ export class DashboardComponent implements OnInit {
     const dailyDeliveriesChart = new Chartist.Line('#dailyDeliveriesChart', dataDailySalesChart, optionsDailySalesChart);
     this.startAnimationForLineChart(dailySalesChart);
     this.startAnimationForLineChart(dailyDeliveriesChart);
+    this.getDetails();
   }
 
+  private getDetails(): void {
+    this.dashboardSvc.index().subscribe(res => {
+      this.details = { ...res };
+    });
+  }
 }
