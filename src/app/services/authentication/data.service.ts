@@ -17,7 +17,8 @@ export class DataService {
   }
 
   getUser(): any {
-    return this.cookieSvc.get('user');
+    const user = JSON.parse(this.cookieSvc.get('user'));
+    return user;
   }
 
   setCookie(name: string, content: string) {

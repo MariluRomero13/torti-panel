@@ -5,6 +5,7 @@ import { IAuth } from 'src/app/models/auth';
 import { environment } from 'src/environments/environment';
 import { tap, mapTo, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { IPassword } from 'src/app/models/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +31,9 @@ export class AuthService {
         this.dataSvc.removeAll();
       })
     );
+  }
+
+  changePassword(password: IPassword) {
+    return this.http.post<any>(`${environment.apiUrl}/change/password`, password);
   }
 }
