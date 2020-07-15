@@ -12,16 +12,8 @@ export class AuthService {
   requestCount = 0;
   constructor(private http: HttpClient, private dataSvc: DataService) { }
 
-  login(credentials: IAuth): any {
-    return this.http.post<any>(`${environment.apiUrl}/login`, credentials).pipe(
-      tap((token: any) => {
-        this.dataSvc.setData(token);
-      }),
-      mapTo(200),
-      catchError(error => {
-        return of(error);
-      })
-    );
+  login(credentials: IAuth) {
+    return this.http.post<any>(`${environment.apiUrl}/login`, credentials);
   }
 
   refreshToken(): any {
@@ -30,7 +22,7 @@ export class AuthService {
     });
   }
 
-  logout(): any {
+  logout() {
     return this.http.post<any>(`${environment.apiUrl}/logout`, {
       refresh_token: this.dataSvc.getRefreshToken()
     }).pipe(

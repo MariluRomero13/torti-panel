@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { appRoutes } from 'src/app/models/routeInfo';
+import { AuthService } from './../../../services/authentication/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,7 +15,10 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  constructor(location: Location, private element: ElementRef, private router: Router) {
+  constructor(location: Location,
+              private authSvc: AuthService,
+              private element: ElementRef,
+              private router: Router) {
     this.location = location;
     this.sidebarVisible = false;
   }
@@ -101,6 +105,14 @@ export class NavbarComponent implements OnInit {
       if ($layer) {
         $layer.remove();
         this.mobileMenuVisible = 0;
+      }
+    });
+  }
+
+  logout(): void {
+    this.authSvc.logout().subscribe(res => {
+      if (res.success) {
+        this.router.navigate(['/login']);
       }
     });
   }

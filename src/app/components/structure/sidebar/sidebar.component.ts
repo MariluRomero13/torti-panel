@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteInfo, appRoutes } from './../../../models/routeInfo';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/authentication/auth.service';
 
 declare const $: any;
 @Component({
@@ -9,7 +11,7 @@ declare const $: any;
 })
 export class SidebarComponent implements OnInit {
   menuItems: RouteInfo[];
-  constructor() { }
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.menuItems = appRoutes.filter(listTitle => listTitle);
@@ -20,5 +22,13 @@ export class SidebarComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  logout(): void {
+    this.authSvc.logout().subscribe(res => {
+      if (res.success) {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 }

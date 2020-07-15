@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
       if (!this.dataSvc.getToken()) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
         return false;
       }
       return true;

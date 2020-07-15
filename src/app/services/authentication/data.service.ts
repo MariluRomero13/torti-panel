@@ -48,7 +48,9 @@ export class DataService {
   }
 
   setData(data: any) {
-    this.setCookie('token', data.token);
-    this.setCookie('refresh-token', data.refreshToken);
+    const user = data.user[0];
+    this.setCookie('user', JSON.stringify(user));
+    this.setCookie('token', data.token.token);
+    this.setCookie('refresh-token', data.token.refreshToken);
   }
 }
