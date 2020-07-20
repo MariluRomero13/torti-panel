@@ -4,7 +4,7 @@
       <div class="col-lg-5 col-md-5 col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h2 class="title-card">{{ employeId ? 'Actualizar usuario' : 'Agregar usuario' }}</h2>
+            <h2 class="title-card">{{ employeeId ? 'Actualizar usuario' : 'Agregar usuario' }}</h2>
           </div>
           <div class="card-body">
             <form [formGroup]="userForm">
@@ -59,7 +59,7 @@
       <div class="col-lg-7 col-md-7 col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h2 class="title-card">{{ employeId ? 'Actualizar empleado' : 'Agregar empleado' }}</h2>
+            <h2 class="title-card">{{ employeeId ? 'Actualizar empleado' : 'Agregar empleado' }}</h2>
           </div>
           <div class="card-body">
             <form [formGroup]="employeeForm">
@@ -113,14 +113,13 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <mat-form-field>
                     <mat-label>Rol</mat-label>
-                    <mat-select formControlName="role">
-                      <mat-option value="option">Administrador</mat-option>
-                      <mat-option value="option">Repartidor</mat-option>
+                    <mat-select formControlName="role_id">
+                      <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</mat-option>
                     </mat-select>
                     <mat-error *ngFor="let validation of validationMessages.role">
                       <mat-error class="error-message"
-                      *ngIf="employeeForm.get('role').hasError(validation.type) && (employeeForm.get('role').dirty
-                          || employeeForm.get('role').touched)">
+                      *ngIf="employeeForm.get('role_id').hasError(validation.type) && (employeeForm.get('role_id').dirty
+                          || employeeForm.get('role_id').touched)">
                       {{validation.message}}
                       </mat-error>
                     </mat-error>
@@ -163,8 +162,8 @@
                       <span>Cancelar</span>
                     </button>
                     <button class="btn main-button"
-                      (click)="employeId ? update() : store()"
-                      [disabled]="!userForm.valid || !employeeForm.valid">
+                      (click)="employeeId ? update() : store()"
+                      [disabled]="!employeeForm.valid">
                       <span>Guardar</span>
                     </button>
                   </div>

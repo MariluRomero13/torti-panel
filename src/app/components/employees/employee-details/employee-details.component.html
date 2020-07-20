@@ -7,12 +7,12 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div id="description">
-        <p><b>Nombre: </b>Luis Lara García</p>
-        <p><b>Telefóno: </b>8745251445</p>
-        <p><b>Usuario: </b>Luis Lara</p>
-        <p><b>Correo: </b>luisLara@gmail.com</p>
-        <p><b>Rol: </b>Repartidor</p>
-        <p><b>Dirección: </b>Calle Francia #456 Col. Europa</p>
+        <p><b>Nombre: </b>{{ employee.employee.name }} {{ employee.employee.paternal }} {{ employee.employee.maternal }}</p>
+        <p><b>Telefóno: </b>{{ employee.employee.phone }}</p>
+        <p><b>Usuario: </b>{{ employee.user ? employee.user.username : 'Sin usuario' }}</p>
+        <p><b>Correo: </b>{{ employee.user ? employee.user.email : 'Sin correo' }}</p>
+        <p><b>Rol: </b>{{ employee.role.name }}</p>
+        <p><b>Dirección: </b>{{ employee.employee.address }}</p>
       </div>
     </div>
   </div>

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { NotificationDetailComponent } from '../../notifications/notification-detail/notification-detail.component';
 import { EmployeeDetailsComponent } from './../employee-details/employee-details.component';
 import { confirmMessage, successMessage } from 'src/app/functions/alerts';
+import { EmployeeService } from './../../../services/employee.service';
 
 @Component({
   selector: 'app-employee-index',
@@ -17,21 +18,19 @@ export class EmployeeIndexComponent implements OnInit {
   @ViewChild(MatSort, {static : true}) sort: MatSort;
   dataSource: any;
   employeeColumns: string[] = ['employee', 'phone', 'status', 'options'];
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private employeeSvc: EmployeeService) { }
 
   ngOnInit(): void {
     this.getEmployees();
   }
 
   private getEmployees(): void {
-    const employees = [
-      { id: 1, employee: 'Pablo Luna', phone: '8715422396', status: true },
-      { id: 2, employee: 'Juan García Gómez', phone: '8790345678', status: false}
-    ];
-    this.dataSource = new MatTableDataSource();
-    this.dataSource.data = employees;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.employeeSvc.index().subscribe(employees => {
+      this.dataSource = new MatTableDataSource();
+      this.dataSource.data = employees;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   openEmployeeDetail(employee): void {
@@ -51,7 +50,7 @@ export class EmployeeIndexComponent implements OnInit {
   changeEmployeeStatus(employee) {
     let message = '';
     let confirm = '';
-    employee.status ?
+    employee.is_active ?
       (
         confirm = '¿Deseas desactivar el empleado?',
         message = 'Empleado desactivado correctamente') :
@@ -61,7 +60,11 @@ export class EmployeeIndexComponent implements OnInit {
       );
     confirmMessage(confirm).then(result => {
       if (result.value) {
-        successMessage(message).then(() => this.getEmployees());
+        this.employeeSvc.delete(employee.id).subscribe(res => {
+          if (res.success) {
+            successMessage(message).then(() => this.getEmployees());
+          }
+        });
       }
     });
   }

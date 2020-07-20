@@ -45,7 +45,8 @@ export const employeeMessages = {
     { type: 'required', message: 'El rol es obligatorio' }
   ],
   phone: [
-    { type: 'required', message: 'El teléfono es obligatorio' }
+    { type: 'required', message: 'El teléfono es obligatorio' },
+    { type: 'max', message: 'El límite de caracteres es 10' }
   ],
 };
 

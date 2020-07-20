@@ -5,7 +5,10 @@ export interface IEmployee {
   maternal: string;
   phone: string;
   address: string;
-  status: boolean;
+  is_active: boolean;
   role_id: number;
-  user_id: number;
+  user_id?: number;
+  username?: string;
+  email?: string;
+  password?: string;
 }

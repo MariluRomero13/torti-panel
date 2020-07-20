@@ -28,7 +28,7 @@
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
               <mat-cell *matCellDef="let employee">
                 <span class="mobile-label cell-title">Empleado:</span>
-                {{ employee.employee }}
+                {{ employee.name }} {{ employee.paternal }} {{ employee.maternal }}
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="phone">
@@ -42,9 +42,9 @@
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Status</mat-header-cell>
               <mat-cell *matCellDef="let employee">
                 <span class="mobile-label cell-title">Status:</span>
-                <span [class.active]="employee.status"
-                  [class.inactive]="!employee.status" (click)="changeEmployeeStatus(employee)" >
-                  {{ employee.status ? 'Activo' : 'Inactivo' }}
+                <span [class.active]="employee.is_active"
+                  [class.inactive]="!employee.is_active" (click)="changeEmployeeStatus(employee)" >
+                  {{ employee.is_active ? 'Activo' : 'Inactivo' }}
                 </span>
               </mat-cell>
             </ng-container>
