@@ -15,7 +15,7 @@ import { EmployeeFormComponent } from '../components/employees/employee-form/emp
 import { EmployeeDetailsComponent } from '../components/employees/employee-details/employee-details.component';
 import { ProductFormComponent } from '../components/products/product-form/product-form.component';
 import { ProductIndexComponent } from '../components/products/product-index/product-index.component';
-
+import { DateAgoPipe } from './../pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -32,10 +32,11 @@ import { ProductIndexComponent } from '../components/products/product-index/prod
     EmployeeFormComponent,
     EmployeeDetailsComponent,
     ProductFormComponent,
-    ProductIndexComponent
+    ProductIndexComponent,
+    DateAgoPipe
   ],
   imports: [
-  CommonModule,
+    CommonModule,
     ShareModule
   ],
   exports: [

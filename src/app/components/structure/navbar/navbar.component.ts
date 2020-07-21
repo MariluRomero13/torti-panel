@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { appRoutes } from 'src/app/models/routeInfo';
 import { AuthService } from './../../../services/authentication/auth.service';
+import Ws from '@adonisjs/websocket-client';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -25,6 +27,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.getRoutes();
+    this.wsConnect();
   }
 
   sidebarOpen() {
@@ -115,5 +118,29 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     });
+  }
+
+  wsConnect() {
+    const ws = Ws(environment.apiUrlWS, {path: 'ws'});
+    ws.connect();
+    ws.on('open', () => {
+      const channel = ws.subscribe('notification');
+      channel.on('new:notification', (data: any) => {
+        this.notification(data);
+      });
+    });
+
+    ws.on('error', (error) => {
+      console.log(error);
+    });
+}
+
+  notification(data) {
+    alert('holaaa')
+      // Notification.requestPermission()
+      // const notification =  new Notification('¡Hay una nueva presolicitud!', {
+      //     body: `${data.name} ${data.paternal} se ha registrado.`,
+      //     icon: '/assets/icons/iYego.png'
+      // })
   }
 }

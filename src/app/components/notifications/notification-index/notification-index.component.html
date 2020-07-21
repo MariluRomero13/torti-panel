@@ -24,28 +24,28 @@
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
               <mat-cell *matCellDef="let notification">
                 <span class="mobile-label cell-title">Empleado:</span>
-                {{ notification.employee }}
+                {{ notification.users.employee.name }} {{ notification.users.employee.paternal }} {{ notification.users.employee.maternal }}
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="phone">
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Teléfono</mat-header-cell>
               <mat-cell *matCellDef="let notification">
                 <span class="mobile-label cell-title">Teléfono:</span>
-                {{ notification.phone }}
+                {{ notification.users.employee.phone }}
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="email">
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Correo</mat-header-cell>
               <mat-cell *matCellDef="let notification">
                 <span class="mobile-label cell-title">Correo:</span>
-                {{ notification.email }}
+                {{ notification.users.email }}
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="requested">
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Solicitado</mat-header-cell>
               <mat-cell *matCellDef="let notification">
                 <span class="mobile-label cell-title">Solicitado:</span>
-                {{ notification.requested }}
+                {{ notification.created_at | dateAgo }}
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="description">

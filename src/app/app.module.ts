@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/authentication/jwt-interceptor.service';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getSpainPaginatorIntl } from './functions/paginator';
+
 @NgModule({
   declarations: [
     AppComponent
