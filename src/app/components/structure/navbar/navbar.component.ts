@@ -4,20 +4,27 @@ import { Location } from '@angular/common';
 import { appRoutes } from 'src/app/models/routeInfo';
 import { AuthService } from './../../../services/authentication/auth.service';
 import Ws from '@adonisjs/websocket-client';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { NotificationComponent } from './notification/notification.component';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  notifications = +localStorage.getItem('notifications');
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   private listTitles: any[];
   location: Location;
+  durationInSeconds = 5;
   mobileMenuVisible: any = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
-
   constructor(location: Location,
+              private snackBar: MatSnackBar,
               private authSvc: AuthService,
               private element: ElementRef,
               private router: Router) {
@@ -125,22 +132,25 @@ export class NavbarComponent implements OnInit {
     ws.connect();
     ws.on('open', () => {
       const channel = ws.subscribe('notification');
-      channel.on('new:notification', (data: any) => {
-        this.notification(data);
+      channel.on('new:notification', () => {
+        localStorage.removeItem('notifications');
+        this.notifications++;
+        localStorage.setItem('notifications', this.notifications.toString());
+        this.openSnackBar();
       });
     });
 
     ws.on('error', (error) => {
       console.log(error);
     });
-}
+  }
 
-  notification(data) {
-    alert('holaaa')
-      // Notification.requestPermission()
-      // const notification =  new Notification('¡Hay una nueva presolicitud!', {
-      //     body: `${data.name} ${data.paternal} se ha registrado.`,
-      //     icon: '/assets/icons/iYego.png'
-      // })
+  openSnackBar() {
+    this.snackBar.openFromComponent(NotificationComponent, {
+      duration: this.durationInSeconds * 1000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['notification']
+    });
   }
 }

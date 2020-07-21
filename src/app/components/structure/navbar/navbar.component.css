@@ -59,3 +59,8 @@
 .menu-item {
   color: black;
 }
+
+::ng-deep .mat-badge-warn .mat-badge-content {
+  color: white;
+  background: #1ABB6D;
+}

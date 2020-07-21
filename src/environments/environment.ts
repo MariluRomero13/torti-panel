@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   apiUrl: 'http://127.0.0.1:3333/api',
-  apiUrlWS: 'ws://127.0.0.1:3333'
-};
+  apiUrlWS: 'ws://127.0.0.1:3333',
+}
+
 
 /*
  * For easier debugging in development mode, you can import the following file

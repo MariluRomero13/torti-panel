@@ -10,11 +10,12 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="notification">
-            <mat-icon matListIcon svgIcon="bell" class="icon-style"></mat-icon>
+            <mat-icon matListIcon svgIcon="bell" class="icon-style" *ngIf="notifications === 0"></mat-icon>
+            <mat-icon [matBadge]="notifications" matBadgeColor="warn" *ngIf="notifications >= 1" class="icon-style">notifications</mat-icon>
           </a>
           <mat-menu #notification="matMenu">
             <button mat-menu-item [routerLink]="['/panel/notificaciones']">
-              <span class="word">Sin notificaciones</span>
+              <span class="word">{{ notifications >= 1 ? 'Notificaciones nuevas' : 'Sin notificaciones' }}</span>
             </button>
           </mat-menu>
         </li>

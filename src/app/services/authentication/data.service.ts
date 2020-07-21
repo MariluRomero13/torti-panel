@@ -49,6 +49,7 @@ export class DataService {
   }
 
   setData(data: any) {
+    localStorage.setItem('notifications', '0');
     const user = data.user[0];
     this.setCookie('user', JSON.stringify(user));
     this.setCookie('token', data.token.token);

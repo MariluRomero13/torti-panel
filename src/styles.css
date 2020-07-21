@@ -157,3 +157,8 @@ mat-header-cell {
   font-weight: 300;
   color: black;
 }
+
+::ng-deep .notification {
+  background: #2A4365;
+  color: white;
+}

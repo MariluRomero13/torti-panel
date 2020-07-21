@@ -16,6 +16,7 @@ import { EmployeeDetailsComponent } from '../components/employees/employee-detai
 import { ProductFormComponent } from '../components/products/product-form/product-form.component';
 import { ProductIndexComponent } from '../components/products/product-index/product-index.component';
 import { DateAgoPipe } from './../pipes/date-ago.pipe';
+import { NotificationComponent } from '../components/structure/navbar/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DateAgoPipe } from './../pipes/date-ago.pipe';
     EmployeeDetailsComponent,
     ProductFormComponent,
     ProductIndexComponent,
-    DateAgoPipe
+    DateAgoPipe,
+    NotificationComponent
   ],
   imports: [
     CommonModule,
