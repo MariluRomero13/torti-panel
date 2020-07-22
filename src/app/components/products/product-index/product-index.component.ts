@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { confirmMessage, successMessage } from 'src/app/functions/alerts';
 import { ProductFormComponent } from './../product-form/product-form.component';
+import { ProductService } from './../../../services/product.service';
 
 @Component({
   selector: 'app-product-index',
@@ -16,28 +17,29 @@ export class ProductIndexComponent implements OnInit {
   @ViewChild(MatSort, {static : true}) sort: MatSort;
   dataSource: any;
   productColumns: string[] = ['name', 'price', 'status', 'options'];
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private productSvc: ProductService) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   private getProducts(): void {
-    const products = [
-      { id: 1, name: 'Kilo de Masa', price: '52', status: true },
-      { id: 2, name: 'Frijoles', price: '20', status: false }
-    ];
-    this.dataSource = new MatTableDataSource();
-    this.dataSource.data = products;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.productSvc.index().subscribe(products => {
+      this.dataSource = new MatTableDataSource();
+      this.dataSource.data = products;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   openProductDialog(edit, product): void {
-    this.dialog.open(ProductFormComponent, {
+    const dialog = this.dialog.open(ProductFormComponent, {
       width: '450px',
       height: '290px',
       data: { edit, product }
+    });
+    dialog.afterClosed().subscribe(() => {
+      this.getProducts();
     });
   }
 
@@ -50,7 +52,7 @@ export class ProductIndexComponent implements OnInit {
   changeProductStatus(product) {
     let message = '';
     let confirm = '';
-    product.status ?
+    product.is_active ?
       (
         confirm = '¿Deseas desactivar el producto?',
         message = 'Producto desactivado correctamente') :
@@ -60,7 +62,11 @@ export class ProductIndexComponent implements OnInit {
       );
     confirmMessage(confirm).then(result => {
       if (result.value) {
-        successMessage(message).then(() => this.getProducts());
+        this.productSvc.delete(product.id).subscribe(res => {
+          if (res.success) {
+            successMessage(message).then(() => this.getProducts());
+          }
+        });
       }
     });
   }

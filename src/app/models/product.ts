@@ -1,6 +1,6 @@
 export interface IProduct {
-  id: number;
+  id?: number;
   name: string;
   unit_price: number;
-  status: boolean;
+  status?: boolean;
 }

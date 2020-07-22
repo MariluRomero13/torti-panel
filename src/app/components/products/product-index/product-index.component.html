@@ -35,16 +35,16 @@
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Precio</mat-header-cell>
               <mat-cell *matCellDef="let product">
                 <span class="mobile-label cell-title">Precio:</span>
-                ${{ product.price }}
+                ${{ product.unit_price }}
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="status">
               <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Status</mat-header-cell>
               <mat-cell *matCellDef="let product">
                 <span class="mobile-label cell-title">Status:</span>
-                <span [class.active]="product.status"
-                  [class.inactive]="!product.status" (click)="changeProductStatus(product)" >
-                  {{ product.status ? 'Activo' : 'Inactivo' }}
+                <span [class.active]="product.is_active"
+                  [class.inactive]="!product.is_active" (click)="changeProductStatus(product)" >
+                  {{ product.is_active ? 'Activo' : 'Inactivo' }}
                 </span>
               </mat-cell>
             </ng-container>

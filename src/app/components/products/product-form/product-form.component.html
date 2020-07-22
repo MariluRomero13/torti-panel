@@ -23,11 +23,11 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <mat-form-field>
           <mat-label>Precio</mat-label>
-          <input currencyMask formControlName="price" matInput required/>
+          <input currencyMask formControlName="unit_price" matInput required/>
           <mat-error *ngFor="let validation of validationMessages.price">
             <mat-error class="error-message"
-              *ngIf="productForm.get('price').hasError(validation.type)
-                && (productForm.get('price').dirty || productForm.get('price').touched)">
+              *ngIf="productForm.get('unit_price').hasError(validation.type)
+                && (productForm.get('unit_price').dirty || productForm.get('unit_price').touched)">
               {{validation.message}}
             </mat-error>
           </mat-error>
