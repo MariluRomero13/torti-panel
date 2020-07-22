@@ -17,6 +17,9 @@ import { ProductFormComponent } from '../components/products/product-form/produc
 import { ProductIndexComponent } from '../components/products/product-index/product-index.component';
 import { DateAgoPipe } from './../pipes/date-ago.pipe';
 import { NotificationComponent } from '../components/structure/navbar/notification/notification.component';
+import { AssignCustomerIndexComponent } from '../components/assign-customers/assign-customer-index/assign-customer-index.component';
+import { AssignCustomerFormComponent } from '../components/assign-customers/assign-customer-form/assign-customer-form.component';
+import { AssignCustomerDetailsComponent } from '../components/assign-customers/assign-customer-details/assign-customer-details.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { NotificationComponent } from '../components/structure/navbar/notificati
     ProductFormComponent,
     ProductIndexComponent,
     DateAgoPipe,
-    NotificationComponent
+    NotificationComponent,
+    AssignCustomerIndexComponent,
+    AssignCustomerFormComponent,
+    AssignCustomerDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { NotificationIndexComponent } from './../notifications/notification-inde
 import { EmployeeIndexComponent } from './../employees/employee-index/employee-index.component';
 import { EmployeeFormComponent } from './../employees/employee-form/employee-form.component';
 import { ProductIndexComponent } from './../products/product-index/product-index.component';
+import { AssignCustomerIndexComponent } from './../assign-customers/assign-customer-index/assign-customer-index.component';
 
 export const dashboardRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // Add AuthGuard
@@ -14,5 +15,6 @@ export const dashboardRoutes: Routes = [
   { path: 'empleados', component: EmployeeIndexComponent },
   { path: 'agregar-empleado', component: EmployeeFormComponent },
   { path: 'editar-empleado/:id', component: EmployeeFormComponent },
-  { path: 'productos', component: ProductIndexComponent }
+  { path: 'productos', component: ProductIndexComponent },
+  { path: 'asignar-clientes', component: AssignCustomerIndexComponent }
 ];
