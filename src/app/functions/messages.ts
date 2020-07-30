@@ -58,3 +58,12 @@ export const productMessage = {
     { type: 'required', message: 'El precio del producto es obligatorio' }
   ]
 };
+
+export const assignMessage = {
+  employee: [
+    { type: 'required', message: 'El empleado es obligatorio' }
+  ],
+  customers: [
+    { type: 'required', message: 'Los clientes son obligatorios' }
+  ]
+};

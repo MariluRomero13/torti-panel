@@ -1,1 +1,67 @@
-<p>assign-customer-index works!</p>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="title">Asignar clientes</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <button class="btn main-button" (click)="openAssignmentForm(false, '')" >
+          <span>Agregar</span>
+        </button>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="search-container">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Buscar" (keyup)="searchAssignment($event.target.value)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="table-responsive">
+          <mat-table class="table" [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="employee">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
+              <mat-cell *matCellDef="let assignment">
+                <span class="mobile-label cell-title">Empleado:</span>
+                {{ assignment.name }} {{ assignment.paternal }} {{ assignment.maternal }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="phone">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Teléfono</mat-header-cell>
+              <mat-cell *matCellDef="let assignment">
+                <span class="mobile-label cell-title">Teléfono:</span>
+                {{ assignment.phone }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="customers">
+              <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cantidad de clientes</mat-header-cell>
+              <mat-cell *matCellDef="let assignment">
+                <span class="mobile-label cell-title">customers:</span>
+                {{ assignment.__meta__.customers }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="options">
+              <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
+              <mat-cell *matCellDef="let assignment">
+                <span class="mobile-label cell-title">Opciones:</span>
+                <mat-icon matIcon svgIcon="pencil" class="option-icon" (click)="openAssignmentForm(true, assignment)" ></mat-icon>
+                <mat-icon matIcon svgIcon="eye" class="option-icon"
+                  (click)="openAssignmentDetails(assignment)"></mat-icon>
+              </mat-cell>
+            </ng-container>
+            <tr>
+              <mat-header-row *matHeaderRowDef="assignmentColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: assignmentColumns"></mat-row>
+            </tr>
+          </mat-table>
+          <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
