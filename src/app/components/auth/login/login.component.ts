@@ -25,12 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    this.isLoading = true;
     if (this.loginForm.invalid) {
       if (!this.loginForm.get('email').valid) {
         warningMessage('Ingresa una dirección de correo válida');
       } else {
         warningMessage('Ingresa tu correo y/o contraseña para continuar');
       }
+      this.isLoading = false;
     } else {
       this.getUserData();
       this.authSvc.login(this.auth).subscribe(res => {
@@ -39,18 +41,22 @@ export class LoginComponent implements OnInit {
             if (res.user[0].employee.role_id !== 2) {
               successMessage('Bienvenido').then(() => {
                 this.dataSvc.setData(res);
+                this.isLoading = false;
                 this.route.navigate(['/panel']);
               });
             } else {
+              this.isLoading = false;
               errorMessage('No eres usuario administrador');
             }
           } else {
+            this.isLoading = false;
             errorMessage('Ocurrió un error');
           }
         });
       }, error => {
         if (error.error) {
           if (error.status === 401) {
+            this.isLoading = false;
             errorMessage('Correo y/o contraseña incorrectos');
           }
         }

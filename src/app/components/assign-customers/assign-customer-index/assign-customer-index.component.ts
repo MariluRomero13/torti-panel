@@ -25,7 +25,6 @@ export class AssignCustomerIndexComponent implements OnInit {
 
   private index(): void {
     this.assignmentSvc.index().subscribe(assignment => {
-      console.log(assignment)
       this.dataSource = new MatTableDataSource();
       this.dataSource.data = assignment;
       this.dataSource.paginator = this.paginator;
@@ -42,10 +41,13 @@ export class AssignCustomerIndexComponent implements OnInit {
   }
 
   openAssignmentForm(edit, assignment): void {
-    this.dialog.open(AssignCustomerFormComponent, {
+    const dialog = this.dialog.open(AssignCustomerFormComponent, {
       width: '450px',
       height: '290px',
       data: { edit, assignment }
+    });
+    dialog.afterClosed().subscribe(() => {
+      this.index();
     });
   }
 

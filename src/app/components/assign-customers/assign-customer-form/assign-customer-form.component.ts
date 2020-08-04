@@ -21,9 +21,9 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
   employees: IEmployee[];
   customers: any;
   validationMessages = assignMessage;
-  @ViewChild('singleSelect', {static: true}) singleSelect: MatSelect;
+  @ViewChild('multiSelect', {static: true}) multiSelect: MatSelect;
   public filteredCustomer: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
-  public customerFilterCtrl: FormControl = new FormControl();
+  public customerCtrl: FormControl = new FormControl();
   protected onDestroy = new Subject<void>();
   constructor(public dialogRef: MatDialogRef<AssignCustomerFormComponent>,
               private assignSvc: AssignCustomerService,
@@ -31,6 +31,7 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
               @Inject(MAT_DIALOG_DATA) public data: any) { this.createForm(); }
 
   ngOnInit(): void {
+    console.log(this.data)
     if (this.data.edit) {
       this.show();
     } else {
@@ -53,12 +54,13 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
   }
 
   store(): void {
-    // this.getProductData();
-    // this.assignSvc.store(this.product).subscribe(res => {
-    //   if (res.success) {
-    //     successMessage('Producto registrado correctamente').then(() => this.clear());
-    //   }
-    // });
+    this.getAssignmentData();
+    this.assignSvc.store(this.assignment).subscribe(res => {
+      console.log(res);
+      if (res.success) {
+        successMessage('Asignación registrada correctamente').then(() => this.clear());
+      }
+    });
   }
 
   update(): void {
@@ -74,14 +76,16 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
     this.assignForm.patchValue(this.data.product);
   }
 
-  private getProductData(): void {
-    // this.product = {
-    //   ...this.assignForm.value
-    // };
-
-    // if (this.data.edit) {
-    //   this.product.id = this.data.product.id;
-    // }
+  private getAssignmentData(): void {
+    const customerSelected = this.assignForm.get('customers').value;
+    const customers = [];
+    customerSelected.forEach(customer => {
+      customers.push(customer.id);
+    });
+    this.assignment = {
+      employee_id: this.assignForm.get('employee').value,
+      customers
+    };
   }
 
   private clear(): void {
@@ -91,13 +95,14 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
 
   private getEmployees(): void {
     this.employeeSvc.index().subscribe(employees => {
-      this.employees = employees;
+      this.employees = employees.filter(e => e.role_id === 2);
     });
   }
 
   private getUnassignedCustomers(): void {
     this.assignSvc.getUnassignedCustomers().subscribe(customers => {
       this.customers = customers;
+      this.searcher(this.customers, this.customerCtrl , this.filteredCustomer);
     });
   }
 
@@ -105,7 +110,7 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
     this.filteredCustomer
     .pipe(take(1), takeUntil(this.onDestroy))
     .subscribe(() => {
-      this.singleSelect.compareWith = (a: any, b: any) => a && b && a.id === b.id;
+      this.multiSelect.compareWith = (a: any, b: any) => a && b && a.id === b.id;
     });
   }
 
