@@ -31,12 +31,10 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
               @Inject(MAT_DIALOG_DATA) public data: any) { this.createForm(); }
 
   ngOnInit(): void {
-    console.log(this.data)
+    this.getEmployees();
+    this.getUnassignedCustomers();
     if (this.data.edit) {
       this.show();
-    } else {
-      this.getEmployees();
-      this.getUnassignedCustomers();
     }
   }
 
@@ -56,7 +54,6 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
   store(): void {
     this.getAssignmentData();
     this.assignSvc.store(this.assignment).subscribe(res => {
-      console.log(res);
       if (res.success) {
         successMessage('Asignación registrada correctamente').then(() => this.clear());
       }
@@ -64,16 +61,30 @@ export class AssignCustomerFormComponent implements OnInit, OnDestroy {
   }
 
   update(): void {
-    // this.getProductData();
-    // this.assignSvc.update(this.product).subscribe(res => {
-    //   if (res.success) {
-    //     successMessage('Producto actualizado correctamente').then(() => this.clear());
-    //   }
-    // });
+    this.getAssignmentData();
+    this.assignSvc.update(this.assignment).subscribe(res => {
+      if (res.success) {
+        successMessage('Asignación editada correctamente').then(() => this.clear());
+      }
+    });
   }
 
   show(): void {
-    this.assignForm.patchValue(this.data.product);
+    this.assignForm.get('employee').setValue(this.data.assignment.id);
+    this.assignForm.get('employee').disable();
+    this.assignSvc.show(this.data.assignment.id).subscribe(res => {
+      const customers = [];
+      const customersSaved = [];
+      res[0].assignCustomer.forEach(assign => {
+        customersSaved.push(assign.customers);
+      });
+
+      this.assignForm.get('customers').setValue(customersSaved);
+      customers.push(...this.customers);
+      customers.push(...customersSaved);
+      this.customers = customers;
+      this.searcher(this.customers, this.customerCtrl , this.filteredCustomer);
+    });
   }
 
   private getAssignmentData(): void {

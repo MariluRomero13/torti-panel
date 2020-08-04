@@ -18,7 +18,11 @@ export class AssignCustomerService {
   }
 
   update(assignment: any) {
-    return this.http.put<any>(`${environment.apiUrl}/assignment-customers/${assignment.id}`, assignment);
+    return this.http.put<any>(`${environment.apiUrl}/assignment-customers/${assignment.employee_id}`, assignment);
+  }
+
+  show(assignmentId: number) {
+    return this.http.get<any>(`${environment.apiUrl}/assignment-customers/${assignmentId}`);
   }
 
   delete(assignmentId: number) {
