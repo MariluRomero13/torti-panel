@@ -37,7 +37,6 @@
     "lodash": "^4.17.19",
     "moment": "^2.26.0",
     "ng-chartist": "^4.1.0",
-    "ngx-cookie-service": "^3.0.4",
     "ngx-currency": "^2.3.3",
     "ngx-mat-select-search": "^3.0.2",
     "npm-registry-fetch": "^4.0.5",

@@ -8,11 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentModule } from './modules/component.module';
 import { ShareModule } from './modules/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorService } from './services/authentication/jwt-interceptor.service';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getSpainPaginatorIntl } from './functions/paginator';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -30,7 +28,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserAnimationsModule
   ],
   providers: [
-    CookieService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
