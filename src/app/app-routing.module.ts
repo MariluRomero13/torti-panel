@@ -7,12 +7,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { dashboardRoutes } from './components/structure/dashboard.routes';
 import { AuthLoginGuard } from './guards/auth-login.guard';
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [AuthLoginGuard] }, // Add AuthLoginGuard
+  { path: 'login', component: LoginComponent, canActivate: [AuthLoginGuard] },
   { path: 'panel', redirectTo: '/panel/dashboard', pathMatch: 'full' },
   { path: '', redirectTo: '/panel/dashboard', pathMatch: 'full' },
-  { path: 'panel', component: AdminLayoutComponent, children: dashboardRoutes, canActivate: [AuthGuard] }, // Add AuthGuard
-  { component: PageNotFoundComponent, path: 'pagina-no-encontrada' },
-  { path: '**', redirectTo: 'pagina-no-encontrada' }
+  { path: 'panel', component: AdminLayoutComponent, children: dashboardRoutes, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

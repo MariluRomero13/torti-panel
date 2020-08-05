@@ -20,11 +20,13 @@ import { NotificationComponent } from '../components/structure/navbar/notificati
 import { AssignCustomerIndexComponent } from '../components/assign-customers/assign-customer-index/assign-customer-index.component';
 import { AssignCustomerFormComponent } from '../components/assign-customers/assign-customer-form/assign-customer-form.component';
 import { AssignCustomerDetailsComponent } from '../components/assign-customers/assign-customer-details/assign-customer-details.component';
+import { PageNotFoundComponent } from '../components/structure/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
+    PageNotFoundComponent,
     AdminLayoutComponent,
     LoginComponent,
     RecoveryPasswordComponent,

@@ -47,12 +47,6 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
-::ng-deep .mat-card-header-text {
-  margin: 0px !important;
-  color: #007bff !important;
-}
-
-
 @media only screen and (max-width: 400px) {
   .mat-card {
     width: 260px;

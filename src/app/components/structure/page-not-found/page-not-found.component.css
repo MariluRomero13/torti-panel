@@ -1,0 +1,28 @@
+.background {
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+  background-size:100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-not-found{
+  font-weight: 400;
+  color: #464646;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 50px;
+}
+
+#back-button {
+  color: white;
+  background-color: #2A4365;
+  margin-top: 25px;
+}
