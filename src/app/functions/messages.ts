@@ -11,11 +11,11 @@ export const loginMessage = {
 
 export const recoveryPasswordMessage = {
   password: [
-    { type: 'required', message: 'La contraseña nueva es obligatoria' },
+    { type: 'required', message: 'La antigua contraseña es obligatoria' },
     { type: 'min', message: 'El mínimo de caracteres es 5' }
   ],
   newPassword: [
-    { type: 'required', message: 'El campo de confirmar contraseña es obligatorio' },
+    { type: 'required', message: 'La contraseña nueva es obligatoria' },
     { type: 'min', message: 'El mínimo de caracteres es 5' }
   ]
 };
