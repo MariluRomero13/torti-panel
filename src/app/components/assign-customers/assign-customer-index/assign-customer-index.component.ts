@@ -34,8 +34,8 @@ export class AssignCustomerIndexComponent implements OnInit {
 
   openAssignmentDetails(assignment): void {
     this.dialog.open(AssignCustomerDetailsComponent, {
-      width: '450px',
-      height: '350px',
+      width: '700px',
+      height: '400px',
       data: assignment
     });
   }

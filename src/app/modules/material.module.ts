@@ -13,6 +13,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 const materialComponents = [
   MatIconModule,
@@ -27,7 +30,10 @@ const materialComponents = [
   MatSortModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatMomentDateModule
 ];
 
 @NgModule({

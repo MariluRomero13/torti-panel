@@ -21,6 +21,12 @@ import { AssignCustomerIndexComponent } from '../components/assign-customers/ass
 import { AssignCustomerFormComponent } from '../components/assign-customers/assign-customer-form/assign-customer-form.component';
 import { AssignCustomerDetailsComponent } from '../components/assign-customers/assign-customer-details/assign-customer-details.component';
 import { PageNotFoundComponent } from '../components/structure/page-not-found/page-not-found.component';
+import { DailyDeliveriesComponent } from '../components/deliveries/daily-deliveries/daily-deliveries.component';
+import { RecordDeliveriesComponent } from '../components/deliveries/record-deliveries/record-deliveries.component';
+import { FutureDeliveriesComponent } from '../components/deliveries/future-deliveries/future-deliveries.component';
+import { DeliveryDetailsComponent } from '../components/deliveries/record-deliveries/delivery-details/delivery-details.component';
+import { FormDeliveryComponent } from '../components/deliveries/form-delivery/form-delivery.component';
+import { DeliveryDaysComponent } from '../components/deliveries/delivery-days/delivery-days.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,13 @@ import { PageNotFoundComponent } from '../components/structure/page-not-found/pa
     NotificationComponent,
     AssignCustomerIndexComponent,
     AssignCustomerFormComponent,
-    AssignCustomerDetailsComponent
+    AssignCustomerDetailsComponent,
+    DailyDeliveriesComponent,
+    RecordDeliveriesComponent,
+    FutureDeliveriesComponent,
+    DeliveryDetailsComponent,
+    FormDeliveryComponent,
+    DeliveryDaysComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +68,9 @@ import { PageNotFoundComponent } from '../components/structure/page-not-found/pa
     RecoveryPasswordComponent,
     NotificationDetailComponent,
     EmployeeDetailsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    FormDeliveryComponent,
+    DeliveryDaysComponent
   ]
 })
 export class ComponentModule { }

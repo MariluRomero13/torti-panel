@@ -67,3 +67,9 @@ export const assignMessage = {
     { type: 'required', message: 'Los clientes son obligatorios' }
   ]
 };
+
+export const deliveryMessage = {
+  deliveryDate: [
+    { type: 'required', message: 'La fecha de entrega es obligatoria' }
+  ],
+};
