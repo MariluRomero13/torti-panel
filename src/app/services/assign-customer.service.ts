@@ -48,4 +48,16 @@ export class AssignCustomerService {
   cancelDelivery(assignmentDetailId: number) {
     return this.http.delete<any>(`${environment.apiUrl}/deliveries/${assignmentDetailId}`);
   }
+
+  getDailyDeliveries() {
+    return this.http.get<any>(`${environment.apiUrl}/daily-deliveries`);
+  }
+
+  getRecordDeliveries() {
+    return this.http.get<any>(`${environment.apiUrl}/record-deliveries`);
+  }
+
+  getFutureDeliveries() {
+    return this.http.get<any>(`${environment.apiUrl}/future-deliveries`);
+  }
 }

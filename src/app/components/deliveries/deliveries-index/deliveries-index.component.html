@@ -1,1 +1,54 @@
-<p>deliveries-index works!</p>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="title">Entregas</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item active">
+                    <a href="#deliveries" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">moped</i> Entregas diarias
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#records" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">receipt_long</i> Historial de entregas
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#future" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">local_shipping</i> Entregas futuras
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="deliveries">
+                <app-daily-deliveries></app-daily-deliveries>
+              </div>
+              <div class="tab-pane" id="records">
+                <app-record-deliveries></app-record-deliveries>
+              </div>
+              <div class="tab-pane" id="future">
+                <app-future-deliveries></app-future-deliveries>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

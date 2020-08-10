@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deliveries-index',
@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deliveries-index.component.css']
 })
 export class DeliveriesIndexComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
-  }
 
+  }
 }

@@ -27,6 +27,7 @@ import { FutureDeliveriesComponent } from '../components/deliveries/future-deliv
 import { DeliveryDetailsComponent } from '../components/deliveries/record-deliveries/delivery-details/delivery-details.component';
 import { FormDeliveryComponent } from '../components/deliveries/form-delivery/form-delivery.component';
 import { DeliveryDaysComponent } from '../components/deliveries/delivery-days/delivery-days.component';
+import { DeliveriesIndexComponent } from '../components/deliveries/deliveries-index/deliveries-index.component';
 
 @NgModule({
   declarations: [
@@ -55,14 +56,18 @@ import { DeliveryDaysComponent } from '../components/deliveries/delivery-days/de
     FutureDeliveriesComponent,
     DeliveryDetailsComponent,
     FormDeliveryComponent,
-    DeliveryDaysComponent
+    DeliveryDaysComponent,
+    DeliveriesIndexComponent
   ],
   imports: [
     CommonModule,
     ShareModule
   ],
   exports: [
-    ShareModule
+    ShareModule,
+    DailyDeliveriesComponent,
+    RecordDeliveriesComponent,
+    FutureDeliveriesComponent
   ],
   entryComponents: [
     RecoveryPasswordComponent,

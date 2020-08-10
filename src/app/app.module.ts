@@ -17,7 +17,7 @@ import { getSpainPaginatorIntl } from './functions/paginator';
     AppComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
