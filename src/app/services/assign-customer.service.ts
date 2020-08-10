@@ -60,4 +60,8 @@ export class AssignCustomerService {
   getFutureDeliveries() {
     return this.http.get<any>(`${environment.apiUrl}/future-deliveries`);
   }
+
+  getSoldProducts(assignmentDetailId: number) {
+    return this.http.get<any>(`${environment.apiUrl}/sold-products/${assignmentDetailId}`);
+  }
 }

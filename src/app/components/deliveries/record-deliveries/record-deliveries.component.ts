@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { confirmMessage, successMessage } from 'src/app/functions/alerts';
 import { AssignCustomerService } from 'src/app/services/assign-customer.service';
 import { MatDialog } from '@angular/material/dialog';
+import { DeliveryDetailsComponent } from './delivery-details/delivery-details.component';
 
 @Component({
   selector: 'app-record-deliveries',
@@ -42,7 +43,11 @@ export class RecordDeliveriesComponent implements OnInit {
     return `${employee.name} ${employee.paternal} ${employee.maternal}`;
   }
 
-  showLostProducts() {
-
+  showLostProducts(delivery) {
+    this.dialog.open(DeliveryDetailsComponent, {
+      width: '700px',
+      height: '400px',
+      data: delivery
+    });
   }
 }
