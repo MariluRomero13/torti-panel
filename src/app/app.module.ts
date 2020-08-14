@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -11,10 +11,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtInterceptorService } from './services/authentication/jwt-interceptor.service';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getSpainPaginatorIntl } from './functions/paginator';
+import { StockFormComponent } from './components/stocks/stock-form/stock-form/stock-form.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StockFormComponent,
+    
+
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   imports: [
   BrowserModule,

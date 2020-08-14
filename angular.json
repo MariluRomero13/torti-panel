@@ -145,5 +145,8 @@
       }
     }
   },
-  "defaultProject": "torti-panel"
+  "defaultProject": "torti-panel",
+  "cli": {
+    "analytics": false
+  }
 }

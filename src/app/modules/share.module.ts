@@ -5,6 +5,8 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
+
 const appModules = [
   CommonModule,
   RouterModule,
@@ -13,7 +15,9 @@ const appModules = [
   FormsModule,
   MaterialModule,
   NgxCurrencyModule,
-  NgxMatSelectSearchModule
+  NgxMatSelectSearchModule,
+  
+  
 ];
 
 @NgModule({

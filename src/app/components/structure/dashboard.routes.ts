@@ -7,7 +7,8 @@ import { EmployeeIndexComponent } from './../employees/employee-index/employee-i
 import { EmployeeFormComponent } from './../employees/employee-form/employee-form.component';
 import { ProductIndexComponent } from './../products/product-index/product-index.component';
 import { AssignCustomerIndexComponent } from './../assign-customers/assign-customer-index/assign-customer-index.component';
-
+import { CustomersIndexComponent } from '../customers/customers-index/customers-index.component';
+import { StockIndexComponent } from '../stocks/stock-index/stock-index.component';
 export const dashboardRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // Add AuthGuard
   { path: 'perfil', component: ProfileComponent },
@@ -16,5 +17,7 @@ export const dashboardRoutes: Routes = [
   { path: 'agregar-empleado', component: EmployeeFormComponent },
   { path: 'editar-empleado/:id', component: EmployeeFormComponent },
   { path: 'productos', component: ProductIndexComponent },
-  { path: 'asignar-clientes', component: AssignCustomerIndexComponent }
+  { path: 'asignar-clientes', component: AssignCustomerIndexComponent },
+  { path: 'clientes', component: CustomersIndexComponent },
+  { path: 'inventario', component: StockIndexComponent } 
 ];

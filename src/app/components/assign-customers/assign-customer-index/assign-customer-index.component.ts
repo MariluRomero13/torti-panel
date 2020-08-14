@@ -29,6 +29,7 @@ export class AssignCustomerIndexComponent implements OnInit {
       this.dataSource.data = assignment;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      console.log(assignment)
     });
   }
 

@@ -21,6 +21,10 @@ import { AssignCustomerIndexComponent } from '../components/assign-customers/ass
 import { AssignCustomerFormComponent } from '../components/assign-customers/assign-customer-form/assign-customer-form.component';
 import { AssignCustomerDetailsComponent } from '../components/assign-customers/assign-customer-details/assign-customer-details.component';
 import { PageNotFoundComponent } from '../components/structure/page-not-found/page-not-found.component';
+import { CustomersIndexComponent } from '../components/customers/customers-index/customers-index.component';
+import { CustomerFormComponent } from '../components/customers/customer-form/customer-form.component';
+import { CustomerModule } from '../components/customers/customer-form/customer.module';
+import { StockIndexComponent } from '../components/stocks/stock-index/stock-index.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +47,14 @@ import { PageNotFoundComponent } from '../components/structure/page-not-found/pa
     NotificationComponent,
     AssignCustomerIndexComponent,
     AssignCustomerFormComponent,
-    AssignCustomerDetailsComponent
+    AssignCustomerDetailsComponent,
+    CustomersIndexComponent,
+    StockIndexComponent
   ],
   imports: [
     CommonModule,
-    ShareModule
+    ShareModule,
+    CustomerModule
   ],
   exports: [
     ShareModule

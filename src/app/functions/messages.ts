@@ -59,6 +59,16 @@ export const productMessage = {
   ]
 };
 
+export const stockMessage = {
+  initial_stock:[
+    {type: 'required',message: 'Sólo se admiten numeros'}
+  ],
+  actual_stock:[
+    {type: 'required',message: 'Sólo se admiten numeros'}
+  ]
+
+}
+
 export const assignMessage = {
   employee: [
     { type: 'required', message: 'El empleado es obligatorio' }
@@ -67,3 +77,21 @@ export const assignMessage = {
     { type: 'required', message: 'Los clientes son obligatorios' }
   ]
 };
+
+export const customerMessage = {
+  name: [
+    {type: 'required', message: 'El nombre es obligatorio'}
+  ],
+  phone: [
+    {type: 'required', message: 'El telefono es obligatorio'}
+  ],
+  address:[
+    {type: 'required', message: 'La dirección es obligatoria'}
+  ],
+  latitude:[
+    {type: 'required', message: 'La latitud es obligatoria'}
+  ],
+  longitude:[
+    {type: 'required', message: 'La longitud es obligatoria'}
+  ]
+}
