@@ -9,6 +9,8 @@ import { ProductIndexComponent } from './../products/product-index/product-index
 import { AssignCustomerIndexComponent } from './../assign-customers/assign-customer-index/assign-customer-index.component';
 import { CustomersIndexComponent } from '../customers/customers-index/customers-index.component';
 import { StockIndexComponent } from '../stocks/stock-index/stock-index.component';
+import { DeliveriesIndexComponent } from './../deliveries/deliveries-index/deliveries-index.component';
+
 export const dashboardRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // Add AuthGuard
   { path: 'perfil', component: ProfileComponent },
@@ -19,5 +21,6 @@ export const dashboardRoutes: Routes = [
   { path: 'productos', component: ProductIndexComponent },
   { path: 'asignar-clientes', component: AssignCustomerIndexComponent },
   { path: 'clientes', component: CustomersIndexComponent },
-  { path: 'inventario', component: StockIndexComponent } 
+  { path: 'inventario', component: StockIndexComponent }, 
+  { path: 'entregas', component: DeliveriesIndexComponent }
 ];

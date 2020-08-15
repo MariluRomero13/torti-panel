@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +12,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 
@@ -29,7 +31,10 @@ const materialComponents = [
   MatSortModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatMomentDateModule,
 ];
 
 @NgModule({

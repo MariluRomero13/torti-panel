@@ -25,7 +25,7 @@ import { StockFormComponent } from './components/stocks/stock-form/stock-form/st
     CUSTOM_ELEMENTS_SCHEMA
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,

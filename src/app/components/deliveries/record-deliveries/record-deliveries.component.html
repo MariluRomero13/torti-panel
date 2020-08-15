@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12"></div>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="search-container">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Buscar" (keyup)="searchDelivery($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="table-responsive">
+      <mat-table class="table" [dataSource]="dataSource">
+        <ng-container matColumnDef="employee">
+          <mat-header-cell *matHeaderCellDef class="cell-title">Empleado</mat-header-cell>
+          <mat-cell *matCellDef="let delivery">
+            <span class="mobile-label cell-title">Empleado:</span>
+            {{ getEmployee(delivery) }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+          <mat-header-cell *matHeaderCellDef class="cell-title">Teléfono</mat-header-cell>
+          <mat-cell *matCellDef="let delivery">
+            <span class="mobile-label cell-title">Teléfono:</span>
+            {{ delivery.assignment.employees.phone }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="customer">
+          <mat-header-cell *matHeaderCellDef class="cell-title">Cliente</mat-header-cell>
+          <mat-cell *matCellDef="let delivery">
+            <span class="mobile-label cell-title">Cliente:</span>
+            {{ delivery.assignment.customers.name }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="delivery_date">
+          <mat-header-cell *matHeaderCellDef class="cell-title">Fecha de entrega</mat-header-cell>
+          <mat-cell *matCellDef="let delivery">
+            <span class="mobile-label cell-title">Fecha de entrega:</span>
+            {{ delivery.delivery_date | date }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef class="cell-title">Status</mat-header-cell>
+          <mat-cell *matCellDef="let delivery">
+            <span class="mobile-label cell-title">Status:</span>
+            <span [class.is_deliveried]="delivery.status === 1"
+              [class.is_pending]="delivery.status === 0"
+              [class.is_cancelled]="delivery.status === 2">
+                {{ delivery.status === 1 ? 'Entregado' : delivery.status === 2 ? 'Cancelado' : 'Pendiente'}}
+            </span>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="options">
+          <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
+          <mat-cell *matCellDef="let delivery">
+            <span class="mobile-label cell-title">Opciones:</span>
+            <button class="btn icon-button" (click)="showLostProducts(delivery)" >
+              <mat-icon matIcon svgIcon="table-eye" class="option-icon"></mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <tr>
+          <mat-header-row *matHeaderRowDef="deliveryColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: deliveryColumns"></mat-row>
+        </tr>
+      </mat-table>
+      <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>

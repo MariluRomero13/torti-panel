@@ -25,6 +25,13 @@ import { CustomersIndexComponent } from '../components/customers/customers-index
 import { CustomerFormComponent } from '../components/customers/customer-form/customer-form.component';
 import { CustomerModule } from '../components/customers/customer-form/customer.module';
 import { StockIndexComponent } from '../components/stocks/stock-index/stock-index.component';
+import { DailyDeliveriesComponent } from '../components/deliveries/daily-deliveries/daily-deliveries.component';
+import { RecordDeliveriesComponent } from '../components/deliveries/record-deliveries/record-deliveries.component';
+import { FutureDeliveriesComponent } from '../components/deliveries/future-deliveries/future-deliveries.component';
+import { DeliveryDetailsComponent } from '../components/deliveries/record-deliveries/delivery-details/delivery-details.component';
+import { FormDeliveryComponent } from '../components/deliveries/form-delivery/form-delivery.component';
+import { DeliveryDaysComponent } from '../components/deliveries/delivery-days/delivery-days.component';
+import { DeliveriesIndexComponent } from '../components/deliveries/deliveries-index/deliveries-index.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +56,14 @@ import { StockIndexComponent } from '../components/stocks/stock-index/stock-inde
     AssignCustomerFormComponent,
     AssignCustomerDetailsComponent,
     CustomersIndexComponent,
-    StockIndexComponent
+    StockIndexComponent,
+    DailyDeliveriesComponent,
+    RecordDeliveriesComponent,
+    FutureDeliveriesComponent,
+    DeliveryDetailsComponent,
+    FormDeliveryComponent,
+    DeliveryDaysComponent,
+    DeliveriesIndexComponent
   ],
   imports: [
     CommonModule,
@@ -57,13 +71,18 @@ import { StockIndexComponent } from '../components/stocks/stock-index/stock-inde
     CustomerModule
   ],
   exports: [
-    ShareModule
+    ShareModule,
+    DailyDeliveriesComponent,
+    RecordDeliveriesComponent,
+    FutureDeliveriesComponent
   ],
   entryComponents: [
     RecoveryPasswordComponent,
     NotificationDetailComponent,
     EmployeeDetailsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    FormDeliveryComponent,
+    DeliveryDaysComponent
   ]
 })
 export class ComponentModule { }

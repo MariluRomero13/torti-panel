@@ -21,8 +21,8 @@ export class AssignCustomerService {
     return this.http.put<any>(`${environment.apiUrl}/assignment-customers/${assignment.employee_id}`, assignment);
   }
 
-  show(assignmentId: number) {
-    return this.http.get<any>(`${environment.apiUrl}/assignment-customers/${assignmentId}`);
+  show(employeId: number) {
+    return this.http.get<any>(`${environment.apiUrl}/assignment-customers/${employeId}`);
   }
 
   delete(assignmentId: number) {
@@ -31,5 +31,37 @@ export class AssignCustomerService {
 
   getUnassignedCustomers() {
     return this.http.get(`${environment.apiUrl}/unassigned-customers`);
+  }
+
+  storeDelivery(delivery: any) {
+    return this.http.post<any>(`${environment.apiUrl}/deliveries`, delivery);
+  }
+
+  updateDelivery(delivery: any) {
+    return this.http.put<any>(`${environment.apiUrl}/deliveries/${delivery.id}`, delivery);
+  }
+
+  getDeliveriesPerCustomer(assignmentId: number) {
+    return this.http.get<any>(`${environment.apiUrl}/deliveries/${assignmentId}`);
+  }
+
+  cancelDelivery(assignmentDetailId: number) {
+    return this.http.delete<any>(`${environment.apiUrl}/deliveries/${assignmentDetailId}`);
+  }
+
+  getDailyDeliveries() {
+    return this.http.get<any>(`${environment.apiUrl}/daily-deliveries`);
+  }
+
+  getRecordDeliveries() {
+    return this.http.get<any>(`${environment.apiUrl}/record-deliveries`);
+  }
+
+  getFutureDeliveries() {
+    return this.http.get<any>(`${environment.apiUrl}/future-deliveries`);
+  }
+
+  getSoldProducts(assignmentDetailId: number) {
+    return this.http.get<any>(`${environment.apiUrl}/sold-products/${assignmentDetailId}`);
   }
 }

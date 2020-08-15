@@ -3,43 +3,40 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-          <h3 class="title">
-            <b>Empleado:</b> {{ employee }}
-          </h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="table-responsive">
             <mat-table class="table" [dataSource]="dataSource">
-              <ng-container matColumnDef="customer">
-                <mat-header-cell *matHeaderCellDef class="cell-title">Cliente</mat-header-cell>
+              <ng-container matColumnDef="deliveryDate">
+                <mat-header-cell *matHeaderCellDef class="cell-title">Fecha de entrega</mat-header-cell>
                 <mat-cell *matCellDef="let assignment">
-                  {{ assignment.customers.name }}
+                  {{ assignment.delivery_date | date }}
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef class="cell-title">Status</mat-header-cell>
                 <mat-cell *matCellDef="let assignment">
-                  <span [class.active]="assignment.is_active"
-                    (click)="changeAssignmentStatus(assignment)"
-                    [class.inactive]="!assignment.is_active">{{ assignment.is_active ? 'Activo' : 'Inactivo' }}</span>
+                  <span [class.is_deliveried]="assignment.status === 1"
+                    [class.is_pending]="assignment.status === 0"
+                    [class.is_cancelled]="assignment.status === 2">
+                      {{ assignment.status === 1 ? 'Entregado' : assignment.status === 2 ? 'Cancelado' : 'Pendiente'}}
+                    </span>
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="options">
                 <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
                 <mat-cell *matCellDef="let assignment">
-                  <button class="btn icon-button" (click)="openDeliveryForm(false, assignment)" [disabled]="!assignment.is_active">
-                    <mat-icon matIcon svgIcon="plus-circle" class="option-icon"></mat-icon>
+                  <button class="btn icon-button" [disabled]="assignment.status !== 0"
+                    (click)="openDeliveryForm(true, assignment)">
+                    <mat-icon matIcon svgIcon="pencil"></mat-icon>
                   </button>
-                  <button class="btn icon-button" (click)="openDeliveryDaysForm(assignment)" [disabled]="!assignment.is_active">
-                    <mat-icon matIcon svgIcon="table-eye" class="option-icon"></mat-icon>
+                  <button class="btn icon-button" [disabled]="assignment.status !== 0"
+                    (click)="cancelDelivery(assignment)">
+                    <mat-icon matIcon svgIcon="cancel"></mat-icon>
                   </button>
                 </mat-cell>
               </ng-container>
               <tr>
-                <mat-header-row *matHeaderRowDef="assignmentColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: assignmentColumns"></mat-row>
+                <mat-header-row *matHeaderRowDef="deliveryColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: deliveryColumns"></mat-row>
               </tr>
             </mat-table>
             <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
