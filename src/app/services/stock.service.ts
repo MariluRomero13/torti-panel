@@ -22,6 +22,6 @@ export class StockService {
   }
 
   getProductWithoutStock() {
-    return this.http.get<any>(`${environment.apiUrl}/getProducts`);
+    return this.http.get<any>(`${environment.apiUrl}/get-products`);
   }
 }
