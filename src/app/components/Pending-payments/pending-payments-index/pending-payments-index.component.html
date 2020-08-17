@@ -33,6 +33,13 @@
                   {{ pendingpayment.total }}
                 </mat-cell>
               </ng-container>
+
+              <ng-container matColumnDef="total_to_pay">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Total a pagar</mat-header-cell>
+                <mat-cell *matCellDef="let pendingpayment">
+                  {{ pendingpayment.total_to_pay }}
+                </mat-cell>
+              </ng-container>
              
               <ng-container matColumnDef="options">
                 <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>

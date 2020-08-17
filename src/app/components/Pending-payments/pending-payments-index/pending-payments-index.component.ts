@@ -14,7 +14,7 @@ export class PendingPaymentsIndexComponent implements OnInit {
   @ViewChild('paginator', {static : true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static : true}) sort: MatSort;
   dataSource: any;
-  pendingpaymentColumns: string[] = ['employee','customer','total','options']
+  pendingpaymentColumns: string[] = ['employee','customer','total','total_to_pay','options']
   constructor(private dialog: MatDialog, private pendingpaymentsSvc: PendingPaymentsService) { }
 
   ngOnInit(): void {

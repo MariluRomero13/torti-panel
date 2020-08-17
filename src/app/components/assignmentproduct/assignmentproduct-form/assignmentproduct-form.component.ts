@@ -32,8 +32,12 @@ export class AssignmentproductFormComponent implements OnInit {
     this.productSvc.indexHasStock().subscribe(res=>{
       this.products = res;
     });
+    /*
     this.employeeSvc.index().subscribe(res=>{
       this.employees = res;
+    });*/
+    this.employeeSvc.index().subscribe(res => {
+      this.employees = res.filter(e => e.role_id === 2);
     });
     if(this.data.edit){
       this.show();
