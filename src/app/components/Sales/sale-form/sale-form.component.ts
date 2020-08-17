@@ -13,18 +13,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class SaleFormComponent implements OnInit {
   @ViewChild('paginator', {static : true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static : true}) sort: MatSort;
-  employee:any; 
+  employee:any;
   date:any;
   dataSource: any;
   saleDetailsColumns: string[] = ['product', 'quantity', 'total'];
-  constructor(private dialog: MatDialog,
-               private saleSvc: SaleService,
-               @Inject(MAT_DIALOG_DATA) public data: any
-               ) { }
+  constructor(private dialog: MatDialog, private saleSvc: SaleService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.getsaleDetails();
-  }    
+  }
 
   private getsaleDetails(): void {
     this.saleSvc.getDetails(this.data.sale.id).subscribe(saleDetails => {
@@ -32,12 +29,8 @@ export class SaleFormComponent implements OnInit {
       this.dataSource.data = saleDetails;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.employee = this.data.sale.assignment.assignment.employees.name;
+      this.employee = this.data.sale.assignment.assignment.employees;
       this.date = this.data.sale.created_at;
-    }, error => {
-      
     });
   }
-
-
 }

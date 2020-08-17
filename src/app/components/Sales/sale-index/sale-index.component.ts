@@ -25,7 +25,6 @@ export class SaleIndexComponent implements OnInit {
   openSaleDialog( sale): void {
     const dialog = this.dialog.open(SaleFormComponent, {
       width: '450px',
-      height: '290px',
       data: {sale}
     });
     dialog.afterClosed().subscribe(() => {

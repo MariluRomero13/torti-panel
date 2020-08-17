@@ -38,7 +38,12 @@ export class PendingPaymentsIndexComponent implements OnInit {
       this.dataSource.data = pendingpayments;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    })
+    });
   }
 
+  searchPendingPayment = (filterValue: string) => {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
 }
