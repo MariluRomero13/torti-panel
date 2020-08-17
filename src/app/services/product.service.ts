@@ -24,4 +24,7 @@ export class ProductService {
   delete(productId: number) {
     return this.http.delete<any>(`${environment.apiUrl}/products/${productId}`);
   }
+  indexHasStock() {
+    return this.http.get<any>(`${environment.apiUrl}/producthasstock`);
+  }
 }

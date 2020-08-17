@@ -1,0 +1,55 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h1 class="title">Pagos pendientes</h1>
+        </div>
+      </div>
+      <div class="row">
+
+        
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="table-responsive">
+            <mat-table class="table" [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="employee">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empledo</mat-header-cell>
+                <mat-cell *matCellDef="let pendingpayment">
+                  {{ pendingpayment.assignment.assignment.employees.name }}
+                </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="customer">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cliente</mat-header-cell>
+                <mat-cell *matCellDef="let pendingpayment">
+                  {{ pendingpayment.assignment.assignment.customers.name }}
+                </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="total">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Total</mat-header-cell>
+                <mat-cell *matCellDef="let pendingpayment">
+                  {{ pendingpayment.total }}
+                </mat-cell>
+              </ng-container>
+             
+              <ng-container matColumnDef="options">
+                <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
+                <mat-cell *matCellDef="let pendingpayment">
+                  <mat-icon matIcon svgIcon="eye" class="option-icon"
+                  (click)="openPendingPaymentDialog(pendingpayment)"></mat-icon>
+                </mat-cell>
+              </ng-container>
+              <tr>
+                <mat-header-row *matHeaderRowDef="pendingpaymentColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: pendingpaymentColumns"></mat-row>
+              </tr>
+            </mat-table>
+            <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

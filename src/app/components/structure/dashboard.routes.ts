@@ -10,6 +10,10 @@ import { AssignCustomerIndexComponent } from './../assign-customers/assign-custo
 import { CustomersIndexComponent } from '../customers/customers-index/customers-index.component';
 import { StockIndexComponent } from '../stocks/stock-index/stock-index.component';
 import { DeliveriesIndexComponent } from './../deliveries/deliveries-index/deliveries-index.component';
+import { SaleIndexComponent } from './../Sales/sale-index/sale-index.component';
+import { PendingPaymentsIndexComponent } from './../Pending-payments/pending-payments-index/pending-payments-index.component';
+import { DevolutionIndexComponent } from './../devolutions/devolution-index/devolution-index.component';
+import { AssignmentproductIndexComponent } from './../assignmentproduct/assignmentproduct-index/assignmentproduct-index.component';
 
 export const dashboardRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // Add AuthGuard
@@ -22,5 +26,9 @@ export const dashboardRoutes: Routes = [
   { path: 'asignar-clientes', component: AssignCustomerIndexComponent },
   { path: 'clientes', component: CustomersIndexComponent },
   { path: 'inventario', component: StockIndexComponent }, 
-  { path: 'entregas', component: DeliveriesIndexComponent }
+  { path: 'entregas', component: DeliveriesIndexComponent },
+  { path: 'ventas', component: SaleIndexComponent },
+  { path: 'pagos-pendientes', component: PendingPaymentsIndexComponent },
+  { path: 'devoluciones', component: DevolutionIndexComponent },
+  { path: 'asignar-productos', component: AssignmentproductIndexComponent },
 ];

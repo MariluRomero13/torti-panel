@@ -1,0 +1,64 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h1 class="title">Asignar productos</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <button class="btn main-button" (click)="openAssignmentProductDialog(false, '')"><!--Añadir evento-->
+            <span>Agregar</span>
+          </button>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="search-container">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Buscar" (keyup)="searchAssignmentProduct($event.target.value)"><!--Añadir evento-->
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="table-responsive">
+            <mat-table class="table" [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="employee">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
+                <mat-cell *matCellDef="let assignmentproduct">
+                  {{ assignmentproduct.employee.name }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="product">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Producto</mat-header-cell>
+                <mat-cell *matCellDef="let assignmentproduct">
+                  {{ assignmentproduct.stock.product.name }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="quantity">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cantidad</mat-header-cell>
+                <mat-cell *matCellDef="let assignmentproduct">
+                  {{ assignmentproduct.quantity}}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="options">
+                <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
+                <mat-cell *matCellDef="let assignmentproduct">
+                  
+                  <mat-icon matIcon svgIcon="pencil" class="option-icon"
+                  (click)="openAssignmentProductDialog(true, assignmentproduct)"></mat-icon> <!--Añadir evento-->
+                </mat-cell>
+              </ng-container>
+              <tr>
+                <mat-header-row *matHeaderRowDef="assignmentproductColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: assignmentproductColumns"></mat-row>
+              </tr>
+            </mat-table>
+            <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

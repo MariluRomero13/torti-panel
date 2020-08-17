@@ -1,0 +1,41 @@
+<p><b>Empleado:</b><span> {{employee}}</span></p>
+<p><b>Fecha de venta:</b><span> {{date | date:'short'}}</span></p>
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="table-responsive">
+            <mat-table class="table" [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="product">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Producto</mat-header-cell>
+                <mat-cell *matCellDef="let sale">
+
+                  {{sale.product.name}}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="quantity">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cantidad</mat-header-cell>
+                <mat-cell *matCellDef="let sale">
+                  
+                  {{sale.quantity}}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="total">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Total</mat-header-cell>
+                <mat-cell *matCellDef="let sale">
+                 
+                 {{sale.total}}
+                </mat-cell>
+              </ng-container>
+              <tr>
+                <mat-header-row *matHeaderRowDef="pendingpaymentDetailsColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: pendingpaymentDetailsColumns"></mat-row>
+              </tr>
+            </mat-table>
+            <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

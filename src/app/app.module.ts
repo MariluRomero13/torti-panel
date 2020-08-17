@@ -12,14 +12,15 @@ import { JwtInterceptorService } from './services/authentication/jwt-interceptor
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getSpainPaginatorIntl } from './functions/paginator';
 import { StockFormComponent } from './components/stocks/stock-form/stock-form/stock-form.component';
+import { PendingPaymentsFormComponent } from './components/Pending-payments/pending-payments-form/pending-payments-form.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     StockFormComponent,
-    
-
+    PendingPaymentsFormComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

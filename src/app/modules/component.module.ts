@@ -32,6 +32,14 @@ import { DeliveryDetailsComponent } from '../components/deliveries/record-delive
 import { FormDeliveryComponent } from '../components/deliveries/form-delivery/form-delivery.component';
 import { DeliveryDaysComponent } from '../components/deliveries/delivery-days/delivery-days.component';
 import { DeliveriesIndexComponent } from '../components/deliveries/deliveries-index/deliveries-index.component';
+import { SaleIndexComponent } from '../components/Sales/sale-index/sale-index.component';
+import { SaleFormComponent } from '../components/Sales/sale-form/sale-form.component';
+import { PendingPaymentsIndexComponent } from '../components/Pending-payments/pending-payments-index/pending-payments-index.component';
+import { DevolutionIndexComponent } from '../components/devolutions/devolution-index/devolution-index.component';
+import { DevolutionFormComponent } from '../components/devolutions/devolution-form/devolution-form.component';
+import { AssignmentproductIndexComponent } from '../components/assignmentproduct/assignmentproduct-index/assignmentproduct-index.component';
+import { AssignmentproductFormComponent } from '../components/assignmentproduct/assignmentproduct-form/assignmentproduct-form.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +71,14 @@ import { DeliveriesIndexComponent } from '../components/deliveries/deliveries-in
     DeliveryDetailsComponent,
     FormDeliveryComponent,
     DeliveryDaysComponent,
-    DeliveriesIndexComponent
+    DeliveriesIndexComponent,
+    SaleIndexComponent,
+    SaleFormComponent,
+    PendingPaymentsIndexComponent,
+    DevolutionIndexComponent,
+    DevolutionFormComponent,
+    AssignmentproductIndexComponent,
+    AssignmentproductFormComponent,
   ],
   imports: [
     CommonModule,
