@@ -20,36 +20,30 @@ export class StockFormComponent implements OnInit {
   products;
   validationMessages = stockMessage;
   constructor(public dialogRef: MatDialogRef<StockFormComponent>,
-              private productSvc:ProductService,
-              private stockSvc:StockService,
+              private stockSvc: StockService,
               @Inject(MAT_DIALOG_DATA) public data: any) {this.createForm(); }
 
   ngOnInit(): void {
-
-    this.productSvc.index().subscribe(res=>{
+    this.stockSvc.getProductWithoutStock().subscribe(res => {
       this.products = res;
     });
-    this.stockForm.get('actual_stock').disable()
-    if(this.data.edit){
-      this.stockForm.get('actual_stock').enable()
+    if (this.data.edit) {
       this.show();
     }
-     
   }
 
   private createForm(): void {
     this.stockForm = new FormGroup({
       product_id: new FormControl('', Validators.required),
-      initial_stock: new FormControl('',Validators.pattern("^[0-9]*$")),
-      actual_stock: new FormControl('',Validators.pattern("^[0-9]*$"))
+      initial_stock: new FormControl('', Validators.pattern('^[0-9]*$')),
+      actual_stock: new FormControl('', Validators.pattern('^[0-9]*$'))
     });
     this.dialogRef.disableClose = true;
   }
 
   store(): void {
     this.getStockData();
-    console.log("El stock", this.stock);
-    this.stock.actual_stock=this.stock.initial_stock
+    this.stock.actual_stock = this.stock.initial_stock;
     this.stockSvc.store(this.stock).subscribe(res => {
       if (res.success) {
         successMessage('Inventario registrado correctamente').then(() => this.clear());
@@ -68,18 +62,17 @@ export class StockFormComponent implements OnInit {
 
   show(): void {
     this.stockForm.patchValue(this.data.stock);
+    this.stockForm.get('product_id').disable();
   }
 
   private getStockData(): void {
     this.stock = {
       ...this.stockForm.value
     };
-    
+
     if (this.data.edit) {
       this.stock.id = this.data.stock.id;
     }
-
-    
   }
 
   private clear(): void {

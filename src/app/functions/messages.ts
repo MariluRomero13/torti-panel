@@ -63,10 +63,9 @@ export const stockMessage = {
   initial_stock:[
     {type: 'required',message: 'Sólo se admiten numeros'}
   ],
-  actual_stock:[
-    {type: 'required',message: 'Sólo se admiten numeros'}
+  product: [
+    {type: 'required', message: 'Seleccione un producto'}
   ]
-
 }
 
 export const AssignmentProductMessage = {

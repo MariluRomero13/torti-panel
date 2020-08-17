@@ -24,7 +24,7 @@ export class NotificationIndexComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    interval(60000).subscribe(() => this.getNotifications());
+    interval(30000).subscribe(() => this.getNotifications());
   }
 
   private getNotifications(): void {
