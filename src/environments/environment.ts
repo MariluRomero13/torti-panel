@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://127.0.0.1:3333/api',
-  apiUrlWS: 'ws://127.0.0.1:3333',
-}
+  // apiUrl: 'http://127.0.0.1:3333/api',
+  // apiUrlWS: 'ws://127.0.0.1:3333',
+
+  apiUrl: 'http://ec2-18-207-164-136.compute-1.amazonaws.com/api',
+  apiUrlWS: 'wss://ec2-18-207-164-136.compute-1.amazonaws.com/api'
+};
+
 
 
 /*
