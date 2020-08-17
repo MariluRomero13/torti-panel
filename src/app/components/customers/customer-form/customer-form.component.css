@@ -4,6 +4,7 @@
 
 #button-container {
   text-align: end;
+  top: -20px;
 }
 
 #button-container > button:first-child {
@@ -25,4 +26,12 @@ input.example-right-align::-webkit-inner-spin-button {
 
 input.example-right-align {
   -moz-appearance: textfield;
+}
+
+#map {
+  height: 300px;
+}
+
+.map-container {
+  top: -70px;
 }

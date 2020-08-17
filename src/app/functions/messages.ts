@@ -70,16 +70,15 @@ export const stockMessage = {
 }
 
 export const AssignmentProductMessage = {
-  employee:[
-    {type: 'required',message: 'Seleccione un empleado'}
+  employee: [
+    {type: 'required', message: 'Seleccione un empleado'}
   ],
-  quantity:[
-    {type: 'required',message: 'Sólo se admiten numeros'}
+  quantity: [
+    {type: 'required', message: 'La cantidad es obligatoria'}
   ],
-  product:[
-    {type: 'required',message: 'Seleccione un producto'}
+  product: [
+    {type: 'required', message: 'Seleccione un producto'}
   ]
-
 }
 
 export const assignMessage = {

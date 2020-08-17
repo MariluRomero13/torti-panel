@@ -1,13 +1,12 @@
-
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <h1 mat-dialog-title>{{ data.edit ? 'Actualizar cliente' : 'Agregar cliente' }}</h1>
-    </div>
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <h1 mat-dialog-title>{{ data.edit ? 'Actualizar cliente' : 'Agregar cliente' }}</h1>
   </div>
-  <div mat-dialog-content>
-    <form [formGroup]="customerForm">
-      <div class="row">
-
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="customerForm">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <mat-form-field>
             <mat-label>Nombre</mat-label>
@@ -22,84 +21,75 @@
             </mat-error>
           </mat-form-field>
         </div>
-
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <mat-form-field>
-              <mat-label>Teléfono</mat-label>
-              <input matInput formControlName="phone" required>
-              <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
-              <mat-error *ngFor="let validation of validationMessages.phone">
-                <mat-error class="error-message"
-                  *ngIf="customerForm.get('phone').hasError(validation.type)
-                    && (customerForm.get('phone').dirty || customerForm.get('phone').touched)">
-                  {{validation.message}}
-                </mat-error>
+          <mat-form-field>
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="phone" required>
+            <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
+            <mat-error *ngFor="let validation of validationMessages.phone">
+              <mat-error class="error-message"
+                *ngIf="customerForm.get('phone').hasError(validation.type)
+                  && (customerForm.get('phone').dirty || customerForm.get('phone').touched)">
+                {{validation.message}}
               </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <mat-form-field>
-              <mat-label>Dirección</mat-label>
-              <input matInput formControlName="address" required>
-              <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
-              <mat-error *ngFor="let validation of validationMessages.address">
-                <mat-error class="error-message"
-                  *ngIf="customerForm.get('address').hasError(validation.type)
-                    && (customerForm.get('address').dirty || customerForm.get('address').touched)">
-                  {{validation.message}}
-                </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <mat-form-field>
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="address" required>
+            <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
+            <mat-error *ngFor="let validation of validationMessages.address">
+              <mat-error class="error-message"
+                *ngIf="customerForm.get('address').hasError(validation.type)
+                  && (customerForm.get('address').dirty || customerForm.get('address').touched)">
+                {{validation.message}}
               </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <mat-form-field>
-              <mat-label>Latitud</mat-label>
-              <input matInput formControlName="latitude" required>
-              <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
-              <mat-error *ngFor="let validation of validationMessages.latitude">
-                <mat-error class="error-message"
-                  *ngIf="customerForm.get('latitude').hasError(validation.type)
-                    && (customerForm.get('latitude').dirty || customerForm.get('latitude').touched)">
-                  {{validation.message}}
-                </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12" [hidden]="true">
+          <mat-form-field>
+            <mat-label>Latitud</mat-label>
+            <input matInput formControlName="latitude" required>
+            <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
+            <mat-error *ngFor="let validation of validationMessages.latitude">
+              <mat-error class="error-message"
+                *ngIf="customerForm.get('latitude').hasError(validation.type)
+                  && (customerForm.get('latitude').dirty || customerForm.get('latitude').touched)">
+                {{validation.message}}
               </mat-error>
-            </mat-form-field>
-          </div>
-
-
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <mat-form-field>
-              <mat-label>Longitud</mat-label>
-              <input matInput formControlName="longitude" required>
-              <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
-              <mat-error *ngFor="let validation of validationMessages.longitude">
-                <mat-error class="error-message"
-                  *ngIf="customerForm.get('longitude').hasError(validation.type)
-                    && (customerForm.get('longitude').dirty || customerForm.get('longitude').touched)">
-                  {{validation.message}}
-                </mat-error>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Longitud</mat-label>
+            <input matInput formControlName="longitude" required>
+            <mat-icon matSuffix class="icon-color" svgIcon="rename-box"></mat-icon>
+            <mat-error *ngFor="let validation of validationMessages.longitude">
+              <mat-error class="error-message"
+                *ngIf="customerForm.get('longitude').hasError(validation.type)
+                  && (customerForm.get('longitude').dirty || customerForm.get('longitude').touched)">
+                {{validation.message}}
               </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div #mapWrapper id="map"></div>
-
-          
-        
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-    </form>
-  </div>
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12" id="button-container">
-      <button class="btn back-button" [mat-dialog-close]="true">
-        <span>Cancelar</span>
-      </button>
-      <button class="btn main-button" (click)="data.edit ? update() : store()"
-        [disabled]="!customerForm.valid">
-        <span>Guardar</span>
-      </button>
+      <div class="col-lg-6 col-md-6 col-sm-6 map-container">
+        <div #mapWrapper id="map"></div>
+      </div>
     </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <div class="col-lg-12 col-md-12 col-sm-12" id="button-container">
+    <button class="btn back-button" [mat-dialog-close]="true">
+      <span>Cancelar</span>
+    </button>
+    <button class="btn main-button" (click)="data.edit ? update() : store()"
+      [disabled]="!customerForm.valid">
+      <span>Guardar</span>
+    </button>
   </div>
-  
+</div>

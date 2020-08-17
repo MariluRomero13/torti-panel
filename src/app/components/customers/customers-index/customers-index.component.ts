@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerFormComponent } from './../customer-form/customer-form.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { confirmMessage, successMessage } from 'src/app/functions/alerts';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-customers-index',
   templateUrl: './customers-index.component.html',
   styleUrls: ['./customers-index.component.css']
 })
 export class CustomersIndexComponent implements OnInit {
+  @ViewChild('paginator', {static : true}) paginator: MatPaginator;
   customerColumns: string[] = ['name', 'phone', 'status', 'options'];
-  dataSource:any;
+  dataSource: any;
 
   constructor(private dialog: MatDialog, private customerSvc: CustomerService) { }
 
@@ -30,20 +25,19 @@ export class CustomersIndexComponent implements OnInit {
     this.customerSvc.index().subscribe(customers => {
       this.dataSource = new MatTableDataSource();
       this.dataSource.data = customers;
+      this.dataSource.paginator = this.paginator;
     })
   }
 
   openCustomerDialog(edit, customer): void {
     const dialog = this.dialog.open(CustomerFormComponent, {
-      width: 'auto',
-      height: 'auto',
+      width: '800px',
       data: { edit, customer }
     });
     dialog.afterClosed().subscribe(() => {
       this.getCustomers();
     });
   }
-
 
   searchCustomer = (filterValue: string) => {
     filterValue = filterValue.trim();

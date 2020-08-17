@@ -24,13 +24,13 @@ export class DeliveryDaysComponent implements OnInit {
               private assignmentSvc: AssignCustomerService) { this.dialogRef.disableClose = true;  }
 
   ngOnInit(): void {
-    console.log()
     this.employee = `${this.data.name} ${this.data.paternal} ${this.data.maternal}`;
     this.index();
   }
 
   private index(): void {
     this.assignmentSvc.getDeliveriesPerCustomer(this.data.id).subscribe(deliveries => {
+      console.log(deliveries)
       this.dataSource = new MatTableDataSource();
       this.dataSource.data = deliveries;
       this.dataSource.paginator = this.paginator;
