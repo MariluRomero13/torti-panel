@@ -18,51 +18,51 @@ export class AssignmentproductFormComponent implements OnInit {
   assignmentproductForm: FormGroup;
   product: IProduct;
   employee: IEmployee;
-  assignmentproduct:any;
-  products;
-  employees;
+  assignmentproduct: any;
+  products: any;
+  employees: any;
   validationMessages = AssignmentProductMessage;
   constructor(public dialogRef: MatDialogRef<AssignmentproductFormComponent>,
-    private productSvc:ProductService,
-    private employeeSvc:EmployeeService,
-    private assignmentproductSvc: AssignmentProductService,
-    @Inject(MAT_DIALOG_DATA) public data: any) {this.createForm();  }
+              private productSvc: ProductService,
+              private employeeSvc: EmployeeService,
+              private assignmentproductSvc: AssignmentProductService,
+              @Inject(MAT_DIALOG_DATA) public data: any) {this.createForm();  }
 
   ngOnInit(): void {
-    this.productSvc.indexHasStock().subscribe(res=>{
+    this.productSvc.indexHasStock().subscribe(res => {
       this.products = res;
     });
-    this.employeeSvc.index().subscribe(res=>{
-      this.employees = res;
+    this.employeeSvc.index().subscribe(res => {
+      this.employees = res.filter(e => e.role_id === 2);
     });
-    if(this.data.edit){
+    if (this.data.edit){
       this.show();
     }
   }
   private createForm(): void {
     this.assignmentproductForm = new FormGroup({
       employee_id: new FormControl('', Validators.required),
-      stock_id: new FormControl('',Validators.required),
-      quantity: new FormControl('',Validators.pattern("^[0-9]*$"))
+      stock_id: new FormControl('', Validators.required),
+      quantity: new FormControl('', Validators.pattern('^[0-9]*$'))
     });
     this.dialogRef.disableClose = true;
   }
 
   show(): void {
-    console.log(this.data.assignmentproduct)
     this.assignmentproductForm.patchValue(this.data.assignmentproduct);
+    this.assignmentproductForm.get('employee_id').disable();
   }
 
   private getAssignmentProductData(): void {
     this.assignmentproduct = {
       ...this.assignmentproductForm.value
     };
-    
+
     if (this.data.edit) {
       this.assignmentproduct.id = this.data.assignmentproduct.id;
     }
 
-    
+
   }
 
   update(): void {
@@ -76,7 +76,6 @@ export class AssignmentproductFormComponent implements OnInit {
 
   store(): void {
     this.getAssignmentProductData();
-    console.log(this.assignmentproduct)
     this.assignmentproductSvc.store(this.assignmentproduct).subscribe(res => {
       if (res.success) {
         successMessage('Asignación registrada correctamente').then(() => this.clear());

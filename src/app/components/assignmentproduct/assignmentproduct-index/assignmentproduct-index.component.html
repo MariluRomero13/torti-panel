@@ -27,7 +27,8 @@
               <ng-container matColumnDef="employee">
                 <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
                 <mat-cell *matCellDef="let assignmentproduct">
-                  {{ assignmentproduct.employee.name }}
+                  {{ assignmentproduct.employee.name }} {{ assignmentproduct.employee.paternal }}
+                  {{  assignmentproduct.employee.maternal }}
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="product">
@@ -45,7 +46,7 @@
               <ng-container matColumnDef="options">
                 <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
                 <mat-cell *matCellDef="let assignmentproduct">
-                  
+
                   <mat-icon matIcon svgIcon="pencil" class="option-icon"
                   (click)="openAssignmentProductDialog(true, assignmentproduct)"></mat-icon> <!--Añadir evento-->
                 </mat-cell>
@@ -61,4 +62,4 @@
       </div>
     </div>
   </div>
-  
+
