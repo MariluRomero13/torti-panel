@@ -9,5 +9,44 @@
 }
 
 .btn-warning{
-    color: black !important;
+  color: black !important;
+}
+
+.detail {
+  height: 80% !important;
+}
+
+.card-icon > i, mat-icon {
+  font-size: 36px;
+  line-height: 56px;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+}
+
+.isGreen {
+  background: linear-gradient(60deg, #3ABB67, #3ABB67) !important;
+}
+
+.isBlue {
+  background: linear-gradient(60deg, #2A4365, #2A4365) !important;
+}
+
+.arrow-button {
+  background-color: #FFDD57 !important;
+  min-width: 30px;
+  border: solid 1px #FFDD57;
+  padding: 0px;
+  max-height: 30px;
+}
+
+.arrow-icon {
+  width: 15px;
+  margin-top: -16px;
+  color: black;
+}
+
+.stats {
+  justify-content: flex-end;
+  width: 100%;
 }
