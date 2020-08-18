@@ -22,26 +22,31 @@
       </div>
      <form [formGroup]="saleDateForm">
       <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="col-lg-5 col-md-12 col-sm-12">
             <mat-card>
                 <mat-form-field >
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker1">
-                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1></mat-datepicker>
+                    <mat-label>Fecha de inicio</mat-label>
+                    <input matInput formControlName="start_date" [matDatepicker]="start_date">
+                    <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+                    <mat-datepicker #start_date></mat-datepicker>
                   </mat-form-field>
             </mat-card>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="col-lg-5 col-md-12 col-sm-12">
             <mat-card>
                 <mat-form-field >
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker2">
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
+                    <mat-label>Fecha final</mat-label>
+                    <input matInput formControlName="end_date" [matDatepicker]="end_date1">
+                    <mat-datepicker-toggle matSuffix [for]="end_date1"></mat-datepicker-toggle>
+                    <mat-datepicker #end_date1></mat-datepicker>
                   </mat-form-field>
             </mat-card>
         </div>
+        <div class="col-lg-2 col-md-12 col-sm-12">
+            <button class="btn main-button"  (click)="searchDateSales()"><!--Añadir evento-->
+              <span>Buscar</span>
+            </button>
+          </div>
       </div>
     </form>
       <div class="row">
@@ -49,21 +54,21 @@
           <div class="table-responsive">
             <mat-table class="table" [dataSource]="dataSource" matSort>
               <ng-container matColumnDef="employee">
-                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Producto</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Empleado</mat-header-cell>
                 <mat-cell *matCellDef="let sale">
                   {{sale.assignment.assignment.employees.name}}
                 </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="customer">
-                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cantidad</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cliente</mat-header-cell>
                 <mat-cell *matCellDef="let sale">
                   {{sale.assignment.assignment.customers.name}}
                 </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="total">
-                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Fecha</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Total</mat-header-cell>
                 <mat-cell *matCellDef="let sale">
                   {{ sale.total }}
                 </mat-cell>

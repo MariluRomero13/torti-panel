@@ -14,4 +14,12 @@ export class SaleService {
   getDetails(saleId: number){
     return this.http.get<any>(`${environment.apiUrl}/getsaledetails/${saleId}`)
   }
+
+  getDateFilteredSales(start_date: any, end_date: any){
+    return this.http.post<any>(`${environment.apiUrl}/getdatefilteredsales`, {
+      start_date: start_date,
+      end_date: end_date
+    })
+  }
+  
 }
