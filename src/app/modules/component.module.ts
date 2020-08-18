@@ -39,6 +39,9 @@ import { DevolutionIndexComponent } from '../components/devolutions/devolution-i
 import { DevolutionFormComponent } from '../components/devolutions/devolution-form/devolution-form.component';
 import { AssignmentproductIndexComponent } from '../components/assignmentproduct/assignmentproduct-index/assignmentproduct-index.component';
 import { AssignmentproductFormComponent } from '../components/assignmentproduct/assignmentproduct-form/assignmentproduct-form.component';
+import { ReportsMenuComponent } from '../components/reports/reports-menu/reports-menu.component';
+import { ReportsSaleComponent } from '../components/reports/reports-sale/reports-sale.component';
+import { ReportsDevolutionsComponent } from '../components/reports/reports-devolutions/reports-devolutions.component';
 
 
 @NgModule({
@@ -79,6 +82,9 @@ import { AssignmentproductFormComponent } from '../components/assignmentproduct/
     DevolutionFormComponent,
     AssignmentproductIndexComponent,
     AssignmentproductFormComponent,
+    ReportsMenuComponent,
+    ReportsSaleComponent,
+    ReportsDevolutionsComponent,
   ],
   imports: [
     CommonModule,

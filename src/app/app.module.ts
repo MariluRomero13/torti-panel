@@ -21,6 +21,8 @@ import { PendingPaymentsFormComponent } from './components/Pending-payments/pend
     AppComponent,
     StockFormComponent,
     PendingPaymentsFormComponent,
+    
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

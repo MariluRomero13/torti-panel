@@ -14,6 +14,11 @@ import { SaleIndexComponent } from './../Sales/sale-index/sale-index.component';
 import { PendingPaymentsIndexComponent } from './../Pending-payments/pending-payments-index/pending-payments-index.component';
 import { DevolutionIndexComponent } from './../devolutions/devolution-index/devolution-index.component';
 import { AssignmentproductIndexComponent } from './../assignmentproduct/assignmentproduct-index/assignmentproduct-index.component';
+import { ReportsMenuComponent } from './../reports/reports-menu/reports-menu.component';
+import { ReportsSaleComponent } from './../reports/reports-sale/reports-sale.component';
+import { ReportsDevolutionsComponent } from '../reports/reports-devolutions/reports-devolutions.component';
+
+
 
 export const dashboardRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // Add AuthGuard
@@ -31,4 +36,7 @@ export const dashboardRoutes: Routes = [
   { path: 'pagos-pendientes', component: PendingPaymentsIndexComponent },
   { path: 'devoluciones', component: DevolutionIndexComponent },
   { path: 'asignar-productos', component: AssignmentproductIndexComponent },
+  { path: 'reportes', component: ReportsMenuComponent },
+  { path: 'reportes-devoluciones', component: ReportsDevolutionsComponent },
+  { path: 'reportes-ventas', component: ReportsSaleComponent },
 ];
