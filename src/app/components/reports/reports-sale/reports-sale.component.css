@@ -1,0 +1,16 @@
+@import '../../../../styles.css';
+.content {
+  margin: 1rem;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+#buttons-content {
+  text-align: right;
+}
+
+#buttons-content > button:first-child {
+  margin-right: 10px;
+}
