@@ -1,75 +1,100 @@
 <div class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <h1 class="title">Inventario</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="title">Inventario</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <button class="btn main-button" (click)="openStockDialog(false, '')">
+          <span>Agregar</span>
+        </button>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="search-container">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              placeholder="Buscar"
+              (keyup)="searchStock($event.target.value)"
+            />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <button class="btn main-button" (click)="openStockDialog(false, '')">
-            <span>Agregar</span>
-          </button>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <div class="search-container">
-            <mat-form-field>
-              <input matInput type="text" placeholder="Buscar" (keyup)="searchStock($event.target.value)">
-              <mat-icon matSuffix>search</mat-icon>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="table-responsive">
-            <mat-table class="table" [dataSource]="dataSource" matSort>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="table-responsive">
+          <mat-table class="table" [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="product">
+              <mat-header-cell
+                *matHeaderCellDef
+                class="cell-title"
+                mat-sort-header
+                >Producto</mat-header-cell
+              >
+              <mat-cell *matCellDef="let stock">
+                <span class="mobile-label cell-title">Producto:</span>
+                {{ stock.product.name }}
+              </mat-cell>
+            </ng-container>
 
-              <ng-container matColumnDef="product">
-                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Producto</mat-header-cell>
-                <mat-cell *matCellDef="let stock">
-                  <span class="mobile-label cell-title">Producto:</span>
-                  {{ stock.product.name }}
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="initial_stock">
+              <mat-header-cell
+                *matHeaderCellDef
+                class="cell-title"
+                mat-sort-header
+                >Cantidad inicial</mat-header-cell
+              >
+              <mat-cell *matCellDef="let stock">
+                <span class="mobile-label cell-title">Cantidad inicial:</span>
+                {{ stock.initial_stock }}
+              </mat-cell>
+            </ng-container>
 
-              <ng-container matColumnDef="initial_stock">
-                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cantidad inicial</mat-header-cell>
-                <mat-cell *matCellDef="let stock">
-                  <span class="mobile-label cell-title">Cantidad inicial:</span>
-                  {{ stock.initial_stock }}
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="actual_stock">
+              <mat-header-cell
+                *matHeaderCellDef
+                class="cell-title"
+                mat-sort-header
+                >Cantidad actual</mat-header-cell
+              >
+              <mat-cell *matCellDef="let stock">
+                <span class="mobile-label cell-title">Cantidad actual:</span>
+                {{ stock.actual_stock }}
+              </mat-cell>
+            </ng-container>
 
-              <ng-container matColumnDef="actual_stock">
-                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Cantidad actual</mat-header-cell>
-                <mat-cell *matCellDef="let stock">
-                  <span class="mobile-label cell-title">Cantidad actual:</span>
-                  {{ stock.actual_stock }}
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="options">
+              <mat-header-cell *matHeaderCellDef class="cell-title"
+                >Opciones</mat-header-cell
+              >
+              <mat-cell *matCellDef="let stock">
+                <span class="mobile-label cell-title">Opciones:</span>
+                <mat-icon
+                  matIcon
+                  svgIcon="pencil"
+                  class="option-icon"
+                  (click)="openStockDialog(true, stock)"
+                ></mat-icon>
+                <!--Insertar evento-->
+              </mat-cell>
+            </ng-container>
 
-              <ng-container matColumnDef="options">
-                <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
-                <mat-cell *matCellDef="let stock">
-                  <span class="mobile-label cell-title">Opciones:</span>
-                  <mat-icon matIcon svgIcon="pencil" class="option-icon"
-                  (click)="openStockDialog(true, stock)"></mat-icon> <!--Insertar evento-->
-                </mat-cell>
-              </ng-container>
-              
-              
-
-
-              <tr>
-                <mat-header-row *matHeaderRowDef="stockColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: stockColumns"></mat-row>
-              </tr>
-            </mat-table>
-            <mat-paginator #paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
-          </div>
+            <tr>
+              <mat-header-row *matHeaderRowDef="stockColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: stockColumns"></mat-row>
+            </tr>
+          </mat-table>
+          <mat-paginator
+            #paginator
+            [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"
+          ></mat-paginator>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

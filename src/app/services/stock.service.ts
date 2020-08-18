@@ -7,7 +7,7 @@ import { IStock } from './../models/stock';
 })
 export class StockService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   index() {
     return this.http.get<any>(`${environment.apiUrl}/stock`);
@@ -19,5 +19,9 @@ export class StockService {
 
   update(stock: IStock) {
     return this.http.put<any>(`${environment.apiUrl}/stock/${stock.id}`, stock);
+  }
+
+  getProductWithoutStock() {
+    return this.http.get<any>(`${environment.apiUrl}/get-products`);
   }
 }
