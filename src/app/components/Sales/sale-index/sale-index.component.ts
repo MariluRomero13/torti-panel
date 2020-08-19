@@ -15,7 +15,7 @@ export class SaleIndexComponent implements OnInit {
   @ViewChild('paginator', {static : true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static : true}) sort: MatSort;
   dataSource: any;
-  saleColumns: string[] = ['employee','customer','total','options']
+  saleColumns: string[] = ['employee','customer','total', 'status', 'options']
   constructor(private dialog: MatDialog, private saleSvc: SaleService) { }
 
   ngOnInit(): void {
@@ -40,6 +40,7 @@ export class SaleIndexComponent implements OnInit {
 
   private getSales(): void{
     this.saleSvc.index().subscribe(sales => {
+      console.log(sales)
       this.dataSource = new MatTableDataSource();
       this.dataSource.data = sales;
       this.dataSource.paginator = this.paginator;

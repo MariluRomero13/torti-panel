@@ -41,12 +41,19 @@
                   {{ sale.total | currency }}
                 </mat-cell>
               </ng-container>
-
               <ng-container matColumnDef="options">
                 <mat-header-cell *matHeaderCellDef class="cell-title">Opciones</mat-header-cell>
                 <mat-cell *matCellDef="let sale">
                   <mat-icon matIcon svgIcon="eye" class="option-icon"
                   (click)="openSaleDialog(sale)"></mat-icon>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Status</mat-header-cell>
+                <mat-cell *matCellDef="let sale">
+                  <span [class.is_pending]="sale.status === 3" [class.is_deliveried]="sale.status === 1">
+                    {{ sale.status === 3 ? 'Pagado pendiente' : 'Vendido' }}
+                  </span>
                 </mat-cell>
               </ng-container>
               <tr>
